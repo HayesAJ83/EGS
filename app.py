@@ -35,6 +35,14 @@ def main():
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
 
+    st.sidebar.title("About")
+        st.sidebar.info(
+            """
+            This web app is maintained by Alastair Hayes. You can follow me on social media:
+            [LinkedIn](https://www.linkedin.com/in/alastair-hayes).
+        """
+        )
+
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
 #  About the team                                                                                 #
@@ -163,7 +171,7 @@ import time
 def show_emerg_all():
 
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title('All - EGS Patient Flow')
+    st.title('Flow of all emergency patients')
 
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
@@ -196,9 +204,7 @@ def show_emerg_all():
         autosize=False, width=800, height=600,
     )
 
-    fig.show()
-
-    
+    st.write(fig)
 
 
     
