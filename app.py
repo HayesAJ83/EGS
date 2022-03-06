@@ -181,7 +181,7 @@ def show_emerg_all():
 def show_biliary():
     st.subheader('''Surg-Flow - Acute gallbladder patients''')
 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_energyGB21.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
