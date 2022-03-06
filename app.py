@@ -137,38 +137,51 @@ import time
 def show_emerg_all():
 
     st.subheader('''Flow of all EGS patients''')
-
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
-
     fig_all = go.Figure(data=[go.Sankey(
         valueformat = ".0f",
+        #valuesuffix = "TWh",
         node = dict(
         pad = 15,
         thickness = 15,
         line = dict(color = "black", width = 0.5),
         label =  data['data'][0]['node']['label'],
+        customdata = [  "A&E referals", 
+                        "GP referals", 
+                        "Referals from other departments", 
+                        "Number going to Surgical assessment unit",
+                        "Number having surgery", 
+                        "Number going to HDU",
+                        "Number going to Surgical ward",
+                        "Number going to ITU", 
+                        "Number discharged home", 
+                        "Number died in hospital",
+                    ],
+            
+        hovertemplate='%{customdata} = %{value}<extra></extra>',
+
         color =  data['data'][0]['node']['color']
         ),
         link = dict(
         source =  data['data'][0]['link']['source'],
         target =  data['data'][0]['link']['target'],
         value =   data['data'][0]['link']['value'],
-        label =   data['data'][0]['link']['label']
+        label =   data['data'][0]['link']['label'],
+        #color =  data['data'][0]['link']['color']
+            
     ))])
 
     fig_all.update_layout(
         hovermode = 'x',
-        font=dict( size = 12, 
-                  color = 'midnight blue'),
+        font=dict(size = 10, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=650,
+        autosize=False, height=600,
     )
 
     st.write(fig_all)
-
     st.write('''<br><br>Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
 
 
@@ -186,7 +199,6 @@ def show_biliary():
     data = json.loads(response.read())
 
     fig_gb = go.Figure(data=[go.Sankey(
-        arrangement = "snap",
         valueformat = ".0f",
         node = dict(
         pad = 15,
@@ -207,7 +219,7 @@ def show_biliary():
         font=dict(size = 12, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=650,
+        autosize=False, height=600,
     )
 
     st.write(fig_gb)
