@@ -164,7 +164,7 @@ def show_emerg_all():
                   color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=True, #width=760, height=600,
+        autosize=False, height=650,
     )
 
     st.write(fig_all)
@@ -206,7 +206,7 @@ def show_biliary():
         font=dict(size = 12, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=600,
+        autosize=False, height=650,
     )
 
     st.write(fig_gb)
