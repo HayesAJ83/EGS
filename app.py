@@ -348,7 +348,7 @@ def exp_journals():
                     st.markdown("---")
                     st.write('<u>References</u>', unsafe_allow_html=True)
                     st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
-                else: pass
+           
 
                 
                 #if df_ep_info2['Description'].any():
@@ -1009,13 +1009,7 @@ def exp_operation():
         ep_yr = df_ep_info['Year'].to_string(index=False)
 
 
-        else:pass
-        if df_ep_info['Who'].any(): st.write('*_Who_*:', df_ep_info['Who_B'].to_string(index=False))
-        else: pass
-        if df_ep_info['Year'].any(): st.write('*_When_*:', df_ep_info['Year_str'].to_string(index=False))
-        else:pass
-        if df_ep_info['Where'].any(): st.write('*_Where_*:', df_ep_info['Where'].to_string(index=False))
-        else:pass
+
 
         if df_ep_info['Description'].any():
             st.markdown("---")
