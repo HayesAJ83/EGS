@@ -195,16 +195,16 @@ def show_emerg_all():
 
     fig_all.update_layout(
         hovermode = 'x',
-        font=dict(size = 14, color = 'midnight blue'),
+        font=dict( size = 16, 
+                  color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=True, #width=800, height=680,
+        autosize=False, width=700, height=680,
     )
 
     st.write(fig_all)
 
 
-    
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
@@ -215,18 +215,39 @@ def show_emerg_all():
 def show_biliary():
     st.write('''_To show sidebar, click **>** in top left_''')
     st.title("Search") 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
-    df = pd.read_csv(url, dtype={'PMID':str,'Year':int})
-    df1 = df['Disease'].dropna()
-    string = df1.str.cat(sep=',')
-    splits = string.split(",")
-    S = set(splits)
-    T = np.array(list(S)).astype(object)
-    U = np.sort(T)
-    disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
-    st.markdown("---")
-    new_dis1 = df.loc[df['Disease'].str.contains('|'.join(disease)) == True]
-    new_dis2 = new_dis1.sort_values(by=['Eponym'],ascending=True)
+
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    fig_gb = go.Figure(data=[go.Sankey(
+        valueformat = ".0f",
+        node = dict(
+        pad = 15,
+        thickness = 15,
+        line = dict( color = "black", width = 0.5),
+        label =  data['data'][0]['node']['label'],
+        color =  data['data'][0]['node']['color']
+        ),
+        link = dict(
+        source =  data['data'][0]['link']['source'],
+        target =  data['data'][0]['link']['target'],
+        value =   data['data'][0]['link']['value'],
+        label =   data['data'][0]['link']['label']
+    ))])
+
+    fig_gb.update_layout(
+        hovermode = 'x',
+        font=dict(size = 16, color = 'midnight blue'),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        autosize=True, #width=900, height=600,
+    )
+
+    st.write(fig_gb)
+    
+    
+
   
 
     
