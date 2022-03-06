@@ -83,8 +83,7 @@ def show_the_app_team():
 #-------------------------------------------------------------------------------------------------#
 def show_home():
 
-    st.write('''_To show sidebar, click **>** in top left_''')
-    st.markdown('''# Emergency General Surgery Flow''')
+    st.markdown('''# Surg-Flow - A Visualisation Tool of Surgical Patients''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
     with st.beta_expander('Introduction'):
@@ -136,8 +135,7 @@ import time
 
 def show_emerg_all():
 
-    st.write('''_To show sidebar, click **>** in top left_''')
-    st.markdown('''## Flow of all emergency patients''')
+    st.title("Flow of all EGS patients")
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -179,7 +177,6 @@ def show_emerg_all():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
-    st.write('''_To show sidebar, click **>** in top left_''')
     st.subheader("Flow of acute gallbladder patients")
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
@@ -215,8 +212,6 @@ def show_biliary():
     
 
   
-
-    
 
             
 #-------------------------------------------------------------------------------------------#
