@@ -54,12 +54,6 @@ def show_the_app_team():
     st.markdown('''The team consists of a group of General Surgeons based in Edinburgh who are
                 motivated to develop software to improve surgical **data systems**,
                 **research** and **education**.''')
-    st.markdown('''To meet these aims, a company called **Excision** was founded in 2020, and
-                **Surgical Names** web app was the first major project.''',unsafe_allow_html=True)
-
-    st.sidebar.markdown("---")
-    st.sidebar.markdown('''**Contact details**''')
-    st.sidebar.info('''Comments, queries and suggestions welcome: ahayes@surgicalnames.com''')
     
     st.subheader("Project Lead & App Developer")
     with st.beta_expander('Alastair Hayes'):
@@ -89,26 +83,19 @@ def show_home():
     st.markdown("---")
     with st.beta_expander('Introduction'):
 
-        st.write('''This project is under continuous development.''')
+        st.write('''This web app was made to experiment with visualisation methods for patient pathways.''')
         st.markdown("---")
         
     with st.beta_expander('Quick Start'):
-        st.write('''Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display.
-                    Then explore using sidebar options:''')
-           
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">All Emergencies:</span>
-                   <span style="font-size:12pt;color:black;">All cases seen by Emergency Team.</span>''',
-                   unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">Acute Gallbladder:</span>
-                   <span style="font-size:12pt;color:black;"> Acute gallbladder patient pathway.</span>''',unsafe_allow_html=True)
+        st.write('''Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display.''')
         st.markdown("---")
 
     with st.beta_expander('Disclaimer'):
-        st.write('''The data on this site is artificial and purely to allow experimentation of tools.
+        st.write('''The data on this site is artificial and created to allow experimentation of tools.
                  ''')
         st.markdown("---")
 
-    st.write('''<br><br>Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
 
 
 #-------------------------------------------------------------------------------------------------#
@@ -136,7 +123,7 @@ import time
 
 def show_emerg_all():
 
-    st.subheader('''Flow of all EGS patients''')
+    st.subheader('''Surg-Flow - All emergency general surgery patients''')
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
@@ -151,7 +138,7 @@ def show_emerg_all():
         customdata = [  "A&E referals", 
                         "GP referals", 
                         "Referals from other departments", 
-                        "Number going to Surgical assessment unit",
+                        "Number going to surgical assessment unit",
                         "Number having surgery", 
                         "Number going to HDU",
                         "Number going to Surgical ward",
@@ -182,7 +169,7 @@ def show_emerg_all():
     )
 
     st.write(fig_all)
-    st.write('''<br><br>Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
 
 
 #-------------------------------------------------------------------------------------------------#
@@ -192,7 +179,7 @@ def show_emerg_all():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
-    st.subheader('''Flow of acute gallbladder patients''')
+    st.subheader('''Surg-Flow - Acute gallbladder patients''')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -224,7 +211,7 @@ def show_biliary():
 
     st.write(fig_gb)
     
-    st.write('''<br><br>Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
     
             
 #-------------------------------------------------------------------------------------------#
