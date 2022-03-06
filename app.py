@@ -38,8 +38,7 @@ def main():
     st.sidebar.title("About")
     st.sidebar.info(
         """
-            This web app is maintained by Alastair Hayes. You can follow me on social media:
-            [LinkedIn](https://www.linkedin.com/in/alastair-hayes).
+            This web app built by Alastair Hayes.
         """
         )
 
@@ -85,63 +84,30 @@ def show_the_app_team():
 def show_home():
 
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.markdown('''# Emergency General Surgery''')
+    st.markdown('''# Emergency General Surgery Flow''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
     with st.beta_expander('Introduction'):
-    
-        st.write('''With the development of Machine Learning tools, and in particular the excellent format
-                    in intuitive & interactive ways**.''')
 
-        st.write('''The functions built into surgicalnames.com are aimed at simulating how we think of terminology
-                    of terms related to their work.''')
-
-        st.write('''You will find several **interactive visualizations** which we hope you will find enjoyable
-                    original papers & related webpages**.''')
-
-        st.write('''This project, surgicalnames.com, is under continuous development with a growing database of terms
-                    & evolving functionality as we develop the software.''')
+        st.write('''This project is under continuous development.''')
         st.markdown("---")
         
     with st.beta_expander('Quick Start'):
         st.write('''Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display.
                     Then explore using sidebar options:''')
            
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">A to Z:</span>
-                   <span style="font-size:12pt;color:black;">Search by name and filter by specialty.</span>''',
+        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">All Emergencies:</span>
+                   <span style="font-size:12pt;color:black;">All cases seen by Emergency Team.</span>''',
                    unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">By Disease or Symptom:</span>
-                   <span style="font-size:12pt;color:black;"> Here you can find eponyms related
-                   to conditions of interest.</span>''',unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">By Operation:</span>
-                   <span style="font-size:12pt;color:black;"> Here you can choose an operation type
-                   (eg. Oesophagectomy), and then access all the common eponyms related to that
-                   procedure.</span>''',unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">By World Maps:</span>
-                   <span style="font-size:12pt;color:black;"> Choose a region of the world to find
-                   local eponyms. Select a continent, country or city.</span>''',
-                   unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">Categories:</span>
-                   <span style="font-size:12pt;color:black;">Choose from anatomy,
-                   incisions, surgical instruments, operations, pathology, physiology, patient
-                   positioning, eponymous fluids, clinical scores or signs, statistical tests, surgical
-                   maneuvers & techniques, syndromes, doctrines & rules or research trials.
-                   </span>''',unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">Exam Favourites:
-                   </span><span style="font-size:12pt;color:black;"> Select from those often found
-                   in exams & filter by speciality.</span>''',unsafe_allow_html=True)
-        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">Teaching Tool:</span>
-                   <span style="font-size:12pt;color:black;">Choose from Bedside, Classroom or
-                   Operating Room modes.</span>''',unsafe_allow_html=True)
+        st.markdown('''<span style="font-size:12pt;color:black;font-weight:bold;">Acute Gallbladder:</span>
+                   <span style="font-size:12pt;color:black;"> Acute gallbladder patient pathway.</span>''',unsafe_allow_html=True)
         st.markdown("---")
-
 
     with st.beta_expander('Disclaimer'):
         st.write('''The data on this site is artificial and purely to allow experimentation of tools.
                  ''')
         st.markdown("---")
 
-    st.markdown("---")
     st.write('''Copyright © 2022 Excision Ltd. All rights reserved.''')
 
 
@@ -199,7 +165,7 @@ def show_emerg_all():
                   color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, width=700, height=680,
+        autosize=False, width=760, height=600,
     )
 
     st.write(fig_all)
@@ -214,7 +180,7 @@ def show_emerg_all():
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("Search") 
+    st.title("Flow of acute gallbladder patients")
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -241,7 +207,7 @@ def show_biliary():
         font=dict(size = 16, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=True, #width=900, height=600,
+        autosize=False, width=760, height=600,
     )
 
     st.write(fig_gb)
