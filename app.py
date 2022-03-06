@@ -81,14 +81,13 @@ def show_explore():
     st.sidebar.subheader('Surgery Service Models')
     exp = st.sidebar.radio('Explore:',
                                 ["Home",
-                                 "Surgical Emergency Patient Flow",
-                                 "Emergency Gallbladder",
-                                 "By Operation",
+                                 "All Emergencies",
+                                 "Acute Gallbladder",
+                               
                                  ])
-    if   exp == "Home":                             exp_about()         #1
-    elif exp == "Surgical Emergency Patient Flow":  exp_A2Z()           #2
-    elif exp == "Emergency Gallbladder":            exp_dis()           #3
-    elif exp == "By Operation":                     exp_operation()     #5
+    if   exp == "Home":                         exp_about()         #1
+    elif exp == "All Emergencies":              exp_A2Z()           #2
+    elif exp == "Acute Gallbladder":            exp_dis()           #3
 
     
 #-------------------------------------------------------------------------------------------------#
@@ -186,28 +185,9 @@ def exp_A2Z():
 
     st.write('''_To show sidebar, click **>** in top left_''')
     st.title('Search the full database')
-    types = st.radio('Step 1) Choose specialties:',["All",])
 
-    if types == "All":
-        @st.cache(suppress_st_warning=True)
-        def load_surgepsdata(url):
-            time.sleep(0.1)
-            return pd.read_csv(url)
 
-        url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
-        df1 = pd.read_csv(url, dtype={'PMID':str,'Year':int})
-        DF1 = load_surgepsdata(url)
-        df2 = DF1.sort_values(by=['Eponym'],ascending=True)
-        st.markdown("---")
-        min_yrs, max_yrs = st.slider('Step 2) Define a time window (years):', 100, 2050, [150, 2021])
-        st.markdown("---")
-        new_1T = df2.loc[(df2['Year'] >= min_yrs) & (df2['Year'] <= max_yrs)]
-        blank_row = {'Alphabet':'','Eponym':'1','Eponym_easy':'1','Eponym_easy_yr':'',}
-        new_2T = new_1T.append(blank_row, ignore_index=True)
-        new_3T = new_2T.sort_values(by=['Eponym'],ascending=True)
-        options = st.selectbox('Step 3) Search:',
-                        new_3T['Eponym_easy'].unique(), format_func=lambda x: ' ' if x == '1' else x)
-        df_ep_info = new_3T[new_3T['Eponym_easy'].str.match(options)]
+    
 
 
     
@@ -241,45 +221,8 @@ def exp_dis():
         df_ep_info = new_dis1[new_dis1['Eponym_easy'].str.match(options)]
         ep_yr = df_ep_info['Year'].to_string(index=False)
 
-        if options == "Aaron sign":
-            image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Aaron.png'
-            st.image(image, width=160)
-        if options == "Allis forceps":
-            image_human = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Allis.png'
-            image_forceps = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Allis_Forceps.png'
-            col1, col2, col3, col4 = st.beta_columns(4)
-            col1.image(image_human, width=160);col2.image(image_forceps, width=386)
-            col3.write(''); col4.write('')
-        if options == "Allison lung retractor":
-            image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Allison.png'
-            st.image(image, width=160)
-
-   
+       
   
-      
-
-        else:pass
-        if df_ep_info['Who'].any(): st.write('*_Who_*:', df_ep_info['Who_B'].to_string(index=False))
-        else: pass
-        if df_ep_info['Year'].any(): st.write('*_When_*:', df_ep_info['Year_str'].to_string(index=False))
-        else:pass
-        if df_ep_info['Where'].any(): st.write('*_Where_*:', df_ep_info['Where'].to_string(index=False))
-        else:pass
-
-        if df_ep_info['Description'].any():
-            st.markdown("---")
-        description = df_ep_info['Description'].to_string(index=False)
-        if df_ep_info['Description'].any():
-            st.markdown(description, unsafe_allow_html=True)
-        else:pass
-
-        if df_ep_info['Ref'].any():
-            st.markdown("---")
-            st.write('<u>References</u>', unsafe_allow_html=True)
-            st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
-        else: pass
-
-     
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
@@ -289,14 +232,8 @@ def exp_dis():
 #-------------------------------------------------------------------------------------------------#
 def exp_journals():
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("Find which eponyms originate from particular journals") 
-    ScreenSize = st.radio('Step 1) Select screen size:',
-                          options=['Smartphone',
-                                   'Desktop / Laptop / Tablet'],index=0)
-
-    if ScreenSize == "Smartphone":
-        types = st.radio('Step 2) Choose specialties:',["All","Selected",])
-        if types == 'All':
+    st.title("Find ") 
+   
             min_yrs, max_yrs = st.slider("3rd) Choose time window:", 1700, 2030, [1715, 2021])
             url_J = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite4Journals.csv'
             dfY = pd.read_csv(url_J) #,dtype={'year':int}) 
@@ -337,18 +274,6 @@ def exp_journals():
                 journal = df_ep_info['journal_name'].to_string(index=False)
 
             
-
-                if df_ep_info['journal_name'].any(): st.write(journal, unsafe_allow_html=True)
-                else: pass
-                if df_ep_info['year_str'].any():st.write('_When_:',df_ep_info['year_str'].to_string(index=False))
-                else: pass
-                if df_ep_info['Who'].any():st.write('_Who_:',df_ep_info['Who'].to_string(index=False))
-
-                if df_ep_info['Ref'].any():
-                    st.markdown("---")
-                    st.write('<u>References</u>', unsafe_allow_html=True)
-                    st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
-           
 
                 
                 #if df_ep_info2['Description'].any():
@@ -723,41 +648,8 @@ def exp_journals():
                 if options == "Nodules of Aranzio":
                     image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Aranzi.png'
                     st.image(image, width=160)
-                if options == "Sphincter of Oddi":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Oddi.png'
-                    st.image(image, width=160)
-                if options == "Mirizzi's syndrome":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Pablo_Mirizzi.png'
-                    st.image(image, width=160)
-                if options == "Rouviere's sulcus":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Rouviere.png'
-                    st.image(image, width=160)
-                if options == "Shouldice hernia repair":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Shouldice.png'
-                    st.image(image, width=160)
-                if options == "Strasberg's critical view of safety":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Strasberg.png'
-                    st.image(image, width=160)
-                if options == "Takayasu's arteritis":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Takayasu.jpg'
-                    st.image(image, width=160)
-                if options == "Ligament of Treitz":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Treitz.png'
-                    st.image(image, width=160)
-                if options == "Whipple's operation":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Whipple.png'
-                    st.image(image, width=160)
-                if options == "Foramen of Winslow":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Winslow.png'
-                    st.image(image, width=160)
-
-
-                if df_ep_info['journal_name'].any(): st.write(journal, unsafe_allow_html=True)
-                else: pass
-                if df_ep_info['year_str'].any():st.write('_When_:',df_ep_info['year_str'].to_string(index=False))
-                else: pass
-                if df_ep_info['Who'].any():st.write('_Who_:',df_ep_info['Who'].to_string(index=False))
-                else: pass
+                
+              
 
                 if df_ep_info['Ref'].any():
                     st.markdown("---")
@@ -765,10 +657,6 @@ def exp_journals():
                     st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
                 else: pass
 
-                #if df_ep_info2['Description'].any():
-                #    st.markdown(description, unsafe_allow_html=True)
-                #if df_ep_info2['History'].any():
-                #    st.write('**_History_**:', history)
                 
 
         if types == 'Selected':
@@ -825,225 +713,9 @@ def exp_journals():
                 df_ep_info = new_jrnls1[new_jrnls1['eponym_yr'].str.match(options)]
                 journal = df_ep_info['journal_name'].to_string(index=False)
 
-                if options == "Aaron sign":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Aaron.png'
-                    st.image(image, width=160)
-                if options == "Allison lung retractor":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Allison.png'
-                    st.image(image, width=160)
-                if options == "Allison repair":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Allison.png'
-                    st.image(image, width=160)
-                if options == "Altemeier procedure":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Altemeier.png'
-                    st.image(image, width=160)
-                if options == "Ambrosetti classification":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Ambrosetti.png'
-                    st.image(image, width=160)
-                if options == "Amyand hernia":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Amyand.png'
-                    st.image(image, width=160)
-                if options == "Barrett's oesophagus":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Barrett.png'
-                    st.image(image, width=160)
-                if options == "Bassini hernia repair":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Bassini.png'
-                    st.image(image, width=160)
-                if options == "Battle's sign":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Battle.png'
-                    st.image(image, width=160)
-                if options == "Beger procedure":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Beger.png'
-                    st.image(image, width=160)
-                if options == "Berry's ligament":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Berry.png'
-                    st.image(image, width=160)
-                if options == "Brown-Séquard syndrome":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Brown-Sequard.png'
-                    st.image(image, width=160)
-                if options == "Brooke ileostomy":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Brooke.png'
-                    st.image(image, width=160)
-                if options == "Calot's triangle":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Calot2.png'
-                    st.image(image, width=500)
-                if options == "Cushing's ulcer":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Cushing.png'
-                    st.image(image, width=160)
-                if options == "DeBakey forceps":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_DeBakey_Forceps.png'
-                    st.image(image, width=300)
-                if options == "De Garengeot's hernia":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_De_Garengeot.png'
-                    st.image(image, width=160)
-                if options == "Delorme's procedure":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Delorme.png'
-                    st.image(image, width=160)
-                if options == "Fanelli catheter":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Fanelli.png'
-                    st.image(image, width=160)
-                if options == "Foley catheter":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Foley.png'
-                    st.image(image, width=160)
-                if options == "Graves disease":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Graves.png'
-                    st.image(image, width=160)
-                if options == "Hartmann's operation":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Henri_Hartmann.png'
-                    st.image(image, width=160)
-                if options == "Hartmann's pouch":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Henri_Hartmann.png'
-                    st.image(image, width=160)
-                if options == "Hashimoto's thyroiditis":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Hashimoto.png'
-                    st.image(image, width=160)
-                if options == "Ivor Lewis oesophagectomy":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Ivor_Lewis.png'
-                    st.image(image, width=160)
-                if options == "Joll's retractor":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Joll.png'
-                    st.image(image, width=160)
-                if options == "Joll's triangle":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Joll.png'
-                    st.image(image, width=160)
-                if options == "Killian's triangle":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Killian.png'
-                    st.image(image, width=160)
-                if options == "Kocher's incision of the abdomen":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Kocher.png'
-                    st.image(image, width=160)
-                if options == "Kocher maneuver":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Kocher.png'
-                    st.image(image, width=160)
-                if options == "Meckel's diverticulum":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Meckel.png'
-                    st.image(image, width=160)
-                if options == "Merendino jejunal interposition":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Merendino.png'
-                    st.image(image, width=160)
-                if options == "Morrison's pouch":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Morrison.png'
-                    st.image(image, width=160)
-                if options == "Nodules of Aranzio":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Aranzi.png'
-                    st.image(image, width=160)
-                if options == "Sphincter of Oddi":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Oddi.png'
-                    st.image(image, width=160)
-                if options == "Mirizzi's syndrome":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Pablo_Mirizzi.png'
-                    st.image(image, width=160)
-                if options == "Rouviere's sulcus":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Rouviere.png'
-                    st.image(image, width=160)
-                if options == "Shouldice hernia repair":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Shouldice.png'
-                    st.image(image, width=160)
-                if options == "Strasberg's critical view of safety":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Strasberg.png'
-                    st.image(image, width=160)
-                if options == "Takayasu's arteritis":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Takayasu.jpg'
-                    st.image(image, width=160)
-                if options == "Ligament of Treitz":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Treitz.png'
-                    st.image(image, width=160)
-                if options == "Whipple's operation":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Whipple.png'
-                    st.image(image, width=160)
-                if options == "Foramen of Winslow":
-                    image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Winslow.png'
-                    st.image(image, width=160)
-
-                if df_ep_info['journal_name'].any(): st.write(journal, unsafe_allow_html=True)
-                else: pass
-                if df_ep_info['year_str'].any():st.write('_When_:',df_ep_info['year_str'].to_string(index=False))
-                else: pass
-                if df_ep_info['Who'].any():st.write('_Who_:',df_ep_info['Who'].to_string(index=False))
-                else: pass
-                if df_ep_info['Ref'].any():
-                    st.markdown("---")
-                    st.write('<u>References</u>', unsafe_allow_html=True)
-                    st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
-                else: pass
                 
-                #if df_ep_info2['Description'].any():
-                #    st.markdown(description, unsafe_allow_html=True)
-                #if df_ep_info2['History'].any():
-                #    st.write('**_History_**:', history)
-
-
-#-------------------------------------------------------------------------------------------------#
-#                                                                                                 #
-#  Surgical Operations (5)                                                                        #
-# ::: Handles                                                                                     #                                                                                              #
-#                                                                                                 #
-#-------------------------------------------------------------------------------------------------#
-def exp_operation():
-    st.write('''_To show sidebar, click **>** in top left_''')
-    st.markdown(
-        """<style type="text/css" media="screen">.hovertext text {font-size: 20px !important;}
-        </style>""",unsafe_allow_html=True,)
-
-    st.title("Find eponyms relevant to your operation") 
-    #Page
-    url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
-    df1 = pd.read_csv(url, dtype={'PMID':str,'Year':int,})
-    df2 = df1.sort_values(by=['Year'],ascending=True)
-    df3 = df2.sort_values(by=['Operation'],ascending=True)  #Gives eponyms by operation alphabetically
-    df4 = df3['Operation'].dropna()
-    string = df4.str.cat(sep=',')
-    splits = string.split(",")
-    S = set(splits)
-    T = np.array(list(S)).astype(object)
-    U = np.sort(T)
-    eponymByOp = st.multiselect('Step 1) Select from operations:',options=list(U),
-                                format_func=lambda x: ' ' if x == '1' else x)
-    new_df = df1.loc[df1['Operation'].str.contains('|'.join(eponymByOp)) == True]
-    new_df2 = new_df.sort_values(by=['Eponym'],ascending=True)
- 
-    if eponymByOp:
-        options = st.selectbox('Step 2) Search list:', new_df2['Eponym_easy'].unique(),
-                                  format_func=lambda x: ' ' if x == '1' else x)
-        df_ep_info = new_df[new_df['Eponym_easy'].str.match(options)]
-        ep_yr = df_ep_info['Year'].to_string(index=False)
-
-
-
-
-        if df_ep_info['Description'].any():
-            st.markdown("---")
-
-        description = df_ep_info['Description'].to_string(index=False)
-
-        if df_ep_info['Description'].any():
-            st.markdown(description, unsafe_allow_html=True)
-        else:pass
-
-        if df_ep_info['Ref'].any():
-            st.markdown("---")
-            st.write('<u>References</u>', unsafe_allow_html=True)
-            st.write(df_ep_info['Ref'].to_string(index=False), unsafe_allow_html=True)
-        else: pass
-
-        if df_ep_info['Pubmed'].any() or df_ep_info['Ref_site'].any() or df_ep_info['Wiki_link'].any() or df_ep_info['WNI_link'].any():
-            st.markdown("---")
-            st.write('<u>External Links</u>', unsafe_allow_html=True)
-
-        ref_site = df_ep_info['Ref_site'].to_string(index=False)
-        if df_ep_info['Ref_site'].any(): st.markdown(f"* **Primary Paper** [webpage]({ref_site})")
-        else:pass
-        pub_link = df_ep_info['Pubmed'].to_string(index=False)
-        if df_ep_info['Pubmed'].any(): st.markdown(f"* **Pubmed** [webpage]({pub_link})")
-        else:pass
-        wiki_link = df_ep_info['Wiki_link'].to_string(index=False)
-        if df_ep_info['Wiki_link'].any(): st.markdown(f"* **Wikipedia** [webpage]({wiki_link})")
-        else:pass
-        wni_link = df_ep_info['WNI_link'].to_string(index=False)
-        if df_ep_info['WNI_link'].any(): st.markdown(f"* **Whonamedit** [webpage]({wni_link})")
-        else:pass
-
-
+                
+            
 #-------------------------------------------------------------------------------------------#
 
 main()
