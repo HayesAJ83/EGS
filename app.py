@@ -186,6 +186,7 @@ def show_biliary():
     data = json.loads(response.read())
 
     fig_gb = go.Figure(data=[go.Sankey(
+        arrangement = "snap",
         valueformat = ".0f",
         node = dict(
         pad = 15,
