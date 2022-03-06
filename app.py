@@ -23,15 +23,17 @@ import streamlit as st
 #-------------------------------------------------------------------------------------------------#
 
 def main():
-    #components.iframe("https://en.wikipedia.org/wiki/Crohn%27s_disease", scrolling=True)
+
     st.sidebar.write('''_Click **X** in top right to hide sidebar_''')
     st.sidebar.subheader('Navigator')
     page = st.sidebar.radio('Go to:',
-                            ["Surgery Service Models",
-                             "Design Team",])
+                            ["Home",
+                             "All Emergencies",
+                             "Acute Gallbladder",])
 
-    if page ==   "Surgery Service Models":   show_explore()
-    elif page == "Design Team":              show_the_app_team()
+    if page ==   "Home":                show_home()
+    elif page == "All Emergencies":     show_emerg_all()
+    elif page == "Acute Gallbladder":   show_biliary()
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
@@ -62,41 +64,17 @@ def show_the_app_team():
         col3.write('''His main coding language is Python & is working to develop software solutions for clinical
                     data system problems, research & education in surgical practice.''')
 
-    st.markdown("---")
-    st.subheader("Acknowledgements")
-    with st.beta_expander('Websites'):
-        st.markdown('''
-                    [Pandas](https://pandas.pydata.org),
-                    [Plotly](https://plotly.com/python/),
-                    [Streamlit](https://www.streamlit.io)''')
+ 
 
  
-#-------------------------------------------------------------------------------------------------#
-#                                                                                                 #
-#  Explorer                                                                                       #
-# ::: Handles the navigation                                                                      #                                                                                              #
-#                                                                                                 #
-#-------------------------------------------------------------------------------------------------#
-def show_explore():
-    st.sidebar.subheader('Surgery Service Models')
-    exp = st.sidebar.radio('Explore:',
-                                ["Home",
-                                 "All Emergencies",
-                                 "Acute Gallbladder",
-                               
-                                 ])
-    if   exp == "Home":                         exp_about()         #1
-    elif exp == "All Emergencies":              exp_A2Z()           #2
-    elif exp == "Acute Gallbladder":            exp_dis()           #3
 
-    
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
-#  About (1)                                                                                      #
+#  Home - About (1)                                                                                      #
 # ::: Handles                                                                                     #                                                                                              
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def exp_about():
+def show_home():
 
     st.write('''_To show sidebar, click **>** in top left_''')
     st.markdown('''# Emergency General Surgery''')
@@ -161,7 +139,7 @@ def exp_about():
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
-#  A to Z (2)                                                                                     #
+#  Emergency All (2)                                                                                     #
 # ::: Handles the                                                                                 #                                                                                              #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
@@ -181,10 +159,10 @@ import requests
 import time
 
 
-def exp_A2Z():
+def show_emerg_all():
 
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title('Search the full database')
+    st.title('All - EGS Patient Flow')
 
 
     
@@ -194,13 +172,13 @@ def exp_A2Z():
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
-#  Disease (3)                                                                                    #
+#  Acute Gallbladder (3)                                                                                    #
 # ::: Handles the                                                                                 #                                                                                              #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def exp_dis():
+def show_biliary():
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("Search by disease, sign or symptom") 
+    st.title("Search") 
     url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
     df = pd.read_csv(url, dtype={'PMID':str,'Year':int})
     df1 = df['Disease'].dropna()
@@ -213,30 +191,10 @@ def exp_dis():
     st.markdown("---")
     new_dis1 = df.loc[df['Disease'].str.contains('|'.join(disease)) == True]
     new_dis2 = new_dis1.sort_values(by=['Eponym'],ascending=True)
-    if disease:
-        options = st.selectbox('Step 2) Search list of related terms:',
-                                   new_dis2['Eponym_easy'].unique(),
-                               format_func=lambda x: ' ' if x == '1' else x)
-
-        df_ep_info = new_dis1[new_dis1['Eponym_easy'].str.match(options)]
-        ep_yr = df_ep_info['Year'].to_string(index=False)
-
-       
   
 
-#-------------------------------------------------------------------------------------------------#
-#                                                                                                 #
-#  Journals (4)                                                                                   #
-# ::: Handles                                                                                     #                                                                                              #
-#                                                                                                 #
-#-------------------------------------------------------------------------------------------------#
-def exp_journals():
-    st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("Find ") 
-   
     
-                
-                
+
             
 #-------------------------------------------------------------------------------------------#
 
