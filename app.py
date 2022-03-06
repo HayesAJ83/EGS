@@ -36,8 +36,8 @@ def main():
     elif page == "Acute Gallbladder":   show_biliary()
 
     st.sidebar.title("About")
-        st.sidebar.info(
-            """
+    st.sidebar.info(
+        """
             This web app is maintained by Alastair Hayes. You can follow me on social media:
             [LinkedIn](https://www.linkedin.com/in/alastair-hayes).
         """
