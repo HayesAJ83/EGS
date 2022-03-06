@@ -154,6 +154,7 @@ import plotly
 import plotly.express as px          
 import plotly.graph_objects as go    
 import plotly.figure_factory as ff
+import urllib, json
 import io
 import requests
 import time
@@ -164,6 +165,38 @@ def show_emerg_all():
     st.write('''_To show sidebar, click **>** in top left_''')
     st.title('All - EGS Patient Flow')
 
+
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    fig = go.Figure(data=[go.Sankey(
+        valueformat = ".0f",
+        #valuesuffix = "TWh",
+        node = dict(
+        pad = 15,
+        thickness = 15,
+        line = dict(color = "black", width = 0.5),
+        label =  data['data'][0]['node']['label'],
+        color =  data['data'][0]['node']['color']
+        ),
+        link = dict(
+        source =  data['data'][0]['link']['source'],
+        target =  data['data'][0]['link']['target'],
+        value =  data['data'][0]['link']['value'],
+        label =  data['data'][0]['link']['label']
+    ))])
+
+    fig.update_layout(
+        hovermode = 'x',
+        title="Emergency General Surgery - Pathways<br>Designer: A.Hayes",
+        font=dict(size = 10, color = 'midnight blue'),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        autosize=False, width=800, height=600,
+    )
+
+    fig.show()
 
     
 
