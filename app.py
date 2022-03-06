@@ -173,19 +173,38 @@ def show_emerg_all():
     st.write('''_To show sidebar, click **>** in top left_''')
     st.title('Flow of all emergency patients')
 
-    fig = go.Figure(go.Sankey(
-    arrangement = "snap",
-    node = {
-        "label": ["A", "B", "C", "D", "E", "F"],
-        "x": [0.2, 0.1, 0.5, 0.7, 0.3, 0.5],
-        "y": [0.7, 0.5, 0.2, 0.4, 0.2, 0.3],
-        'pad':10},  # 10 Pixels
-    link = {
-        "source": [0, 0, 1, 2, 5, 4, 3, 5],
-        "target": [5, 3, 4, 3, 0, 2, 2, 3],
-        "value": [1, 2, 1, 1, 1, 1, 1, 2]}))
+
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    fig = go.Figure(data=[go.Sankey(
+        valueformat = ".0f",
+        #valuesuffix = "TWh",
+        node = dict(
+        pad = 15,
+        thickness = 15,
+        line = dict(color = "black", width = 0.5),
+        label =  data['data'][0]['node']['label'],
+        color =  data['data'][0]['node']['color']
+        ),
+        link = dict(
+        source =  data['data'][0]['link']['source'],
+        target =  data['data'][0]['link']['target'],
+        value =  data['data'][0]['link']['value'],
+        label =  data['data'][0]['link']['label']
+    ))])
+
+    fig.update_layout(
+        hovermode = 'x',
+        font=dict(size = 10, color = 'midnight blue'),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        autosize=False, width=900, height=800,
+    )
 
     st.write(fig)
+
 
     
 
