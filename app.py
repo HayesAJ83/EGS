@@ -38,7 +38,7 @@ def main():
     st.sidebar.subheader("About")
     st.sidebar.info(
         """
-            This web app was built by Alastair Hayes who also built [SurgicalNames](https://www.surgicalnames.com)
+            This web app was built by General Surgeon and Programer Alastair Hayes who also built [SurgicalNames](https://www.surgicalnames.com)
         """
         )
 
@@ -162,7 +162,7 @@ def show_emerg_all():
 
     fig_all.update_layout(
         hovermode = 'x',
-        font=dict(size = 10, color = 'midnight blue'),
+        font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
         autosize=False, height=600,
@@ -203,14 +203,13 @@ def show_biliary():
 
     fig_gb.update_layout(
         hovermode = 'x',
-        font=dict(size = 12, color = 'midnight blue'),
+        font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
         autosize=False, height=600,
     )
 
     st.write(fig_gb)
-    
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
     
             
