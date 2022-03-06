@@ -27,11 +27,11 @@ def main():
     st.sidebar.write('''_Click **X** in top right to hide sidebar_''')
     st.sidebar.subheader('Navigator')
     page = st.sidebar.radio('Go to:',
-                            ["Emergency Surgery Tool Lab",
+                            ["Surgery Service Models",
                              "Design Team",])
 
-    if page ==   "Surgical Names App":   show_explore()
-    elif page == "Design Team":        show_the_app_team()
+    if page ==   "Surgery Service Models":   show_explore()
+    elif page == "Design Team":              show_the_app_team()
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
@@ -78,7 +78,7 @@ def show_the_app_team():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_explore():
-    st.sidebar.subheader('Emergency Surgery Tools Lab')
+    st.sidebar.subheader('Surgery Service Models')
     exp = st.sidebar.radio('Explore:',
                                 ["Home",
                                  "Surgical Emergency Patient Flow",
