@@ -136,7 +136,7 @@ import time
 
 def show_emerg_all():
 
-    st.markdown('''## Flow of all EGS patients''')
+    st.subheader('''Flow of all EGS patients''')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -160,7 +160,7 @@ def show_emerg_all():
 
     fig_all.update_layout(
         hovermode = 'x',
-        font=dict( size = 14, 
+        font=dict( size = 12, 
                   color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
@@ -179,7 +179,7 @@ def show_emerg_all():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
-    st.markdown('''## Flow of acute gallbladder patients''')
+    st.subheader('''Flow of acute gallbladder patients''')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -203,7 +203,7 @@ def show_biliary():
 
     fig_gb.update_layout(
         hovermode = 'x',
-        font=dict(size = 14, color = 'midnight blue'),
+        font=dict(size = 12, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
         autosize=True, #width=760, height=600,
