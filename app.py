@@ -38,7 +38,7 @@ def main():
     st.sidebar.subheader("About")
     st.sidebar.info(
         """
-            This web app built by Alastair Hayes.
+            This web app was built by Alastair Hayes who also built [SurgicalNames](https://www.surgicalnames.com)
         """
         )
 
@@ -137,7 +137,7 @@ import time
 def show_emerg_all():
 
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.subheader('Flow of all emergency patients')
+    st.markdown('''## Flow of all emergency patients''')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
