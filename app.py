@@ -95,7 +95,7 @@ def show_home():
                  ''')
         st.markdown("---")
 
-    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
 
 
 #-------------------------------------------------------------------------------------------------#
@@ -123,7 +123,7 @@ import time
 
 def show_emerg_all():
 
-    st.subheader('''Surg-Flow - All emergency general surgery patients''')
+    st.title('''All emergency general surgery patients''')
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
@@ -169,7 +169,7 @@ def show_emerg_all():
     )
 
     st.write(fig_all)
-    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
 
 
 #-------------------------------------------------------------------------------------------------#
@@ -179,7 +179,7 @@ def show_emerg_all():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
-    st.subheader('''Surg-Flow - Acute gallbladder patients''')
+    st.title('''Acute gallbladder patients''')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_energyGB21.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -210,7 +210,7 @@ def show_biliary():
     )
 
     st.write(fig_gb)
-    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
             
 #-------------------------------------------------------------------------------------------#
