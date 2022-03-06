@@ -84,7 +84,7 @@ def show_the_app_team():
 def show_home():
 
     st.title('''Surg-Flow''')
-    st.markdown('''# _interactive surgical patient pathways_''')
+    st.markdown('''### _An interactive surgical patient pathway tool_''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
     with st.beta_expander('Introduction'):
@@ -164,7 +164,7 @@ def show_emerg_all():
                   color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, width=760, height=600,
+        autosize=True, #width=760, height=600,
     )
 
     st.write(fig_all)
@@ -205,7 +205,7 @@ def show_biliary():
         font=dict(size = 16, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, width=760, height=600,
+        autosize=True, #width=760, height=600,
     )
 
     st.write(fig_gb)
