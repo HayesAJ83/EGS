@@ -83,7 +83,8 @@ def show_the_app_team():
 #-------------------------------------------------------------------------------------------------#
 def show_home():
 
-    st.markdown('''# Surg-Flow - A Visualisation Tool of Surgical Patients''')
+    st.title('''Surg-Flow''')
+    st.markdown('''# _interactive surgical patient pathways_''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
     with st.beta_expander('Introduction'):
@@ -107,7 +108,7 @@ def show_home():
                  ''')
         st.markdown("---")
 
-    st.write('''Copyright © 2022 Excision Ltd. All rights reserved.''')
+    st.write('''<br><br>Copyright © 2022 Excision Ltd. All rights reserved.''', unsafe_allow_html=True)
 
 
 #-------------------------------------------------------------------------------------------------#
