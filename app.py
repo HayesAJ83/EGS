@@ -35,7 +35,7 @@ def main():
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
 
-    st.sidebar.title("About")
+    st.sidebar.subheader("About")
     st.sidebar.info(
         """
             This web app built by Alastair Hayes.
@@ -137,7 +137,7 @@ import time
 def show_emerg_all():
 
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title('Flow of all emergency patients')
+    st.subheader('Flow of all emergency patients')
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
@@ -180,7 +180,7 @@ def show_emerg_all():
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
     st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("Flow of acute gallbladder patients")
+    st.subheader("Flow of acute gallbladder patients")
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energyGB20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
