@@ -82,18 +82,13 @@ def show_home():
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
     with st.beta_expander('Introduction'):
-
         st.write('''This web app was made to experiment with visualisation methods for patient pathways.''')
-        st.markdown("---")
         
     with st.beta_expander('Quick Start'):
         st.write('''Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display.''')
-        st.markdown("---")
 
     with st.beta_expander('Disclaimer'):
-        st.write('''The data on this site is artificial and created to allow experimentation of tools.
-                 ''')
-        st.markdown("---")
+        st.write('''The data on this site is artificial and created to allow development of tools.''')
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
 
@@ -165,7 +160,7 @@ def show_emerg_all():
         font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=600,
+        autosize=False, height=650,
     )
 
     st.write(fig_all)
@@ -206,7 +201,7 @@ def show_biliary():
         font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=600,
+        autosize=False, height=650,
     )
 
     st.write(fig_gb)
