@@ -119,6 +119,11 @@ import time
 def show_emerg_all():
 
     st.title('''All emergency general surgery patients''')
+    st.write(
+        '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
+        '''
+        )
+
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS_old/main/data/sankey_energy029.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
@@ -175,6 +180,10 @@ def show_emerg_all():
 #-------------------------------------------------------------------------------------------------#
 def show_biliary():
     st.title('''Acute gallbladder patients''')
+    st.write(
+        '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
+        '''
+        )
 
     url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_energyGB21.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
