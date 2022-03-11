@@ -113,10 +113,10 @@ def show_home():
                             "Ventral",
                         "Blockage",
                             "Gallstone ileus",
-                    "Large bowel",
+                    "Colonic",
                         "Volvulus",
                         "Stricture",
-                    "Gastric outlet",
+                    "Gastric",
             
                 "Peritonitis", 
                     "Appendicitis",
@@ -154,8 +154,8 @@ def show_home():
                                     "Blockage",
                                 
                             "Obstruction",
-                                "Large bowel",
-                                "Large bowel",
+                                "Colonic",
+                                "Colonic",
                             "Obstruction",
                             
                 
@@ -174,7 +174,8 @@ def show_home():
                 ],
     
         branchvalues="total",
-        maxdepth=3
+        maxdepth=3,
+        insidetextorientation='radial'
     ))
 
     fig2.update_layout(margin = dict(t=0, l=0, r=0, b=0))
@@ -267,99 +268,6 @@ def show_emerg_all():
     )
 
     st.write(fig_all)
-
-    fig2 = go.Figure(go.Sunburst(
-        labels=[ "Surgical Abdomen", 
-                "Bleeding", 
-                    "GI tract",
-                    "Mesentery",
-                    "Solid organ",
-                    "Vascular",
-            
-                "Ischaemia", 
-                    "Mesenteric",
-                    "Ischaemic colitis",
-                    "Solid organs",
-            
-                "Obstruction", 
-                    "Small bowel", 
-                        "Adhesions",
-                        "Hernia",
-                            "Groin",
-                            "Ventral",
-                        "Blockage",
-                            "Gallstone ileus",
-                    "Large bowel",
-                        "Volvulus",
-                        "Stricture",
-                    "Gastric outlet",
-            
-                "Peritonitis", 
-                    "Appendicitis",
-                        "Complicated",
-                        "Simple",
-                    "Colitis",
-                        "Diverticulitis",
-                        "Ischaemic",
-                    "Gallbladder",
-                    "Pancreatitis",
-                        "Biliary",
-                        "Non-biliary",
-                    "Perforation"
-                ],
-    
-        parents=[ "",    
-                    "Surgical Abdomen",  
-                        "Bleeding",
-                        "Bleeding",
-                        "Bleeding",
-                        "Bleeding",
-                    
-                    "Surgical Abdomen",  
-                        "Ischaemia",
-                        "Ischaemia",
-                        "Ischaemia",
-                
-                    "Surgical Abdomen",  
-                            "Obstruction", 
-                                "Small bowel",
-                                "Small bowel",
-                                    "Hernia",
-                                    "Hernia",
-                                "Small bowel",
-                                    "Blockage",
-                                
-                            "Obstruction",
-                                "Large bowel",
-                                "Large bowel",
-                            "Obstruction",
-                            
-                
-                    "Surgical Abdomen",  
-                        "Peritonitis",
-                            "Appendicitis",
-                            "Appendicitis",
-                        "Peritonitis",
-                            "Colitis",
-                            "Colitis",
-                        "Peritonitis",
-                        "Peritonitis",
-                            "Pancreatitis",
-                            "Pancreatitis",
-                        "Peritonitis" 
-                ],
-    
-        branchvalues="total",
-        maxdepth=3
-    ))
-
-    fig2.update_layout(margin = dict(t=0, l=0, r=0, b=0))
-
-    st.write(
-        '''Acute care surgical problems 
-        '''
-        )
-    st.write(fig2)
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
 
