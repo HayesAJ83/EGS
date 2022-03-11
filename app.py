@@ -178,7 +178,10 @@ def show_emerg_all():
     fig =go.Figure(go.Sunburst(
         labels=[ "Surgical", 
                     "Bleeding", 
-                    "Obstruction", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
+                    "Obstruction", 
+                        "Small bowel", 
+                        "Large bowel", 
+                    "Perforation", "Awan", "Enoch", "Azura"],
         parents=["",    
                     "Surgical",  
                     "Surgical",  
