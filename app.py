@@ -83,22 +83,23 @@ def show_the_app_team():
 def show_home():
 
     st.title('''Surg-Flow''')
-    st.markdown('''### _An interactive surgical patient pathway tool_''')
+    st.markdown('''### _An interactive surgical pathway tool_''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.write("#")
 
     st.info(
         """
-            This web app was made to experiment with visualisation methods for patient pathways. Navigate with the sidebar on the left.
+            This web app was made to experiment with visualisation methods for patient pathways. 
+            Use the sidebar on the left to navigate.
         """
         )
     st.write("#")
 
     components.html(
         """
-        <div style="text-align: center; font-family:sans-serif; font-size: 25px">Emergency General Surgery - Categories</div>
+        <div style="text-align: center; font-family:sans-serif; font-size: 20px">Emergency General Surgery - Categories</div>
         """,
-        height=40,
+        height=32,
     )
 
     fig2 = go.Figure(go.Sunburst(
