@@ -84,7 +84,6 @@ def show_home():
     st.title('''Surg-Flow''')
     st.markdown('''### _An interactive surgical patient pathway tool_''')
     st.markdown('''_A Web App from Excision Ltd_''')
-    st.markdown("---")
 
     st.info(
         """
@@ -178,12 +177,14 @@ def show_home():
         insidetextorientation='radial'
     ))
 
-    fig2.update_layout(margin = dict(t=0, l=0, r=0, b=0))
+    fig2.update_layout(
+    title="Emergency General Surgery - Categories",
+    margin = dict(t=0, l=0, r=0, b=0))
 
-    st.subheader(
-        '''Emergency General Surgery - Categories 
-        '''
-        )
+    #st.subheader(
+    #    '''Emergency General Surgery - Categories 
+    #    '''
+    #    )
     st.write(fig2)
   
     with st.beta_expander('Disclaimer'):
