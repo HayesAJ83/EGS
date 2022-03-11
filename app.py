@@ -176,13 +176,25 @@ def show_emerg_all():
 
 
     fig =go.Figure(go.Sunburst(
-        labels=[ "Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
-        parents=["",    "Eve",  "Eve",  "Seth", "Seth", "Eve",  "Eve",  "Awan",  "Eve" ],
+        labels=[ "Surgical", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
+        parents=["",    
+                    "Surgical",  
+                    "Surgical",  
+                        "Seth", 
+                        "Seth", 
+                    "Surgical",  
+                    "Surgical",  
+                        "Awan",  
+                    "Surgical" ],
         values=[  65,    14,     12,     10,     2,      6,      6,      4,       4],
         branchvalues="total",
     ))
     fig.update_layout(margin = dict(t=0, l=0, r=0, b=0))
 
+    st.write(
+        '''Acute care surgical problems 
+        '''
+        )
     st.write(fig)
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
