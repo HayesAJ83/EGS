@@ -92,12 +92,13 @@ def show_home():
             This web app was made to experiment with visualisation methods for patient pathways. Navigate with the sidebar on the left.
         """
         )
+    st.write("#")
 
     components.html(
         """
-        <div style="text-align: center; font-family:sans-serif">Emergency General Surgery - Categories</div>
+        <div style="text-align: center; font-family:sans-serif; font-size: 25px">Emergency General Surgery - Categories</div>
         """,
-        height=180,
+        height=40,
     )
 
     fig2 = go.Figure(go.Sunburst(
@@ -187,7 +188,6 @@ def show_home():
     ))
 
     fig2.update_layout(
-    title="Emergency General Surgery - Categories",
     margin = dict(t=50, l=0, r=0, b=0))
 
     #st.subheader(
