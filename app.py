@@ -85,12 +85,112 @@ def show_home():
     st.markdown('''### _An interactive surgical patient pathway tool_''')
     st.markdown('''_A Web App from Excision Ltd_''')
     st.markdown("---")
-    with st.beta_expander('Introduction'):
-        st.write('''This web app was made to experiment with visualisation methods for patient pathways.''')
-        
-    with st.beta_expander('Quick Start'):
-        st.write('''Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display.''')
 
+    st.info(
+        """
+            This web app was made to experiment with visualisation methods for patient pathways
+        """
+        )
+
+    st.info(
+        """
+            Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display
+        """
+        )
+
+    fig2 = go.Figure(go.Sunburst(
+        labels=[ "Surgical Abdomen", 
+                "Bleeding", 
+                    "GI tract",
+                    "Mesentery",
+                    "Solid organ",
+                    "Vascular",
+            
+                "Ischaemia", 
+                    "Mesenteric",
+                    "Ischaemic colitis",
+                    "Solid organs",
+            
+                "Obstruction", 
+                    "Small bowel", 
+                        "Adhesions",
+                        "Hernia",
+                            "Groin",
+                            "Ventral",
+                        "Blockage",
+                            "Gallstone ileus",
+                    "Large bowel",
+                        "Volvulus",
+                        "Stricture",
+                    "Gastric outlet",
+            
+                "Peritonitis", 
+                    "Appendicitis",
+                        "Complicated",
+                        "Simple",
+                    "Colitis",
+                        "Diverticulitis",
+                        "Ischaemic",
+                    "Gallbladder",
+                    "Pancreatitis",
+                        "Biliary",
+                        "Non-biliary",
+                    "Perforation"
+                ],
+    
+        parents=[ "",    
+                    "Surgical Abdomen",  
+                        "Bleeding",
+                        "Bleeding",
+                        "Bleeding",
+                        "Bleeding",
+                    
+                    "Surgical Abdomen",  
+                        "Ischaemia",
+                        "Ischaemia",
+                        "Ischaemia",
+                
+                    "Surgical Abdomen",  
+                            "Obstruction", 
+                                "Small bowel",
+                                "Small bowel",
+                                    "Hernia",
+                                    "Hernia",
+                                "Small bowel",
+                                    "Blockage",
+                                
+                            "Obstruction",
+                                "Large bowel",
+                                "Large bowel",
+                            "Obstruction",
+                            
+                
+                    "Surgical Abdomen",  
+                        "Peritonitis",
+                            "Appendicitis",
+                            "Appendicitis",
+                        "Peritonitis",
+                            "Colitis",
+                            "Colitis",
+                        "Peritonitis",
+                        "Peritonitis",
+                            "Pancreatitis",
+                            "Pancreatitis",
+                        "Peritonitis" 
+                ],
+    
+        branchvalues="total",
+        maxdepth=3
+    ))
+
+    fig2.update_layout(margin = dict(t=0, l=0, r=0, b=0))
+
+    st.write(
+        '''Acute care surgical problems 
+        '''
+        )
+    st.write(fig2)
+  
     with st.beta_expander('Disclaimer'):
         st.write('''The data on this site is artificial and created to allow development of tools.''')
 
