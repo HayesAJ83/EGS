@@ -92,7 +92,8 @@ def show_home():
         )
 
     fig2 = go.Figure(go.Sunburst(
-        labels=[ "Surgical Abdomen", 
+        labels=
+        [ "Surgical Abdomen", 
                 "Bleeding", 
                     "GI tract",
                     "Mesentery",
@@ -157,7 +158,6 @@ def show_home():
                                 "Colonic",
                             "Obstruction",
                             
-                
                     "Surgical Abdomen",  
                         "Peritonitis",
                             "Appendicitis",
@@ -179,7 +179,7 @@ def show_home():
 
     fig2.update_layout(
     title="Emergency General Surgery - Categories",
-    margin = dict(t=0, l=0, r=0, b=0))
+    margin = dict(t=10, l=0, r=0, b=0))
 
     #st.subheader(
     #    '''Emergency General Surgery - Categories 
