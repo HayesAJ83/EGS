@@ -184,7 +184,9 @@ def show_emerg_all():
                     "Ischaemia", 
                     "Peritonitis", 
                         "Appendicitis", 
-                    "Perforation"],
+                    "Perforation",
+                        "Perf DU"
+                ],
         parents=["",    
                     "Surgical",  
                     "Surgical",  
@@ -193,8 +195,10 @@ def show_emerg_all():
                     "Surgical",  
                     "Surgical",  
                         "Peritonitis",  
-                    "Surgical" ],
-        values=[  65,    14,     12,     10,     2,      6,      6,      4,       4],
+                    "Surgical",
+                        "Perforation"
+                ],
+        values=[  100,  10,  20,  10,  2,  6,  6,  4,  4, 5],
         branchvalues="total",
     ))
     fig.update_layout(margin = dict(t=0, l=0, r=0, b=0))
