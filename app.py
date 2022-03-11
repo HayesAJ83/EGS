@@ -34,7 +34,7 @@ def main():
     if page ==   "Home":                show_home()
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
-    elif page == "Obstruction":         show_obstruction()
+    elif page == "Obstruction":         show_obstruct()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -224,7 +224,7 @@ def show_biliary():
 # ::: Handles the                                                                                 #                                                                                              #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def show_biliary():
+def show_obstruct():
     st.title('''Obstructed patients''')
     st.write(
         '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
