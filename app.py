@@ -176,11 +176,11 @@ def show_emerg_all():
 
 
 
-    dataPath = dict(
         character=["Surgical Problems", 
                         "Bleeding", 
                         "Ischaemia", 
-                            "Enos", "Noam", 
+                            "Ischaemic bowel", 
+                            "Ischaemic colitis", 
                         "Obstruction", 
                         "Peritonitis", 
                             "Enoch", 
@@ -196,14 +196,31 @@ def show_emerg_all():
                             "Eve" ],
         value=    [10, 14, 12, 10, 2, 6, 6, 4, 4])
 
-    figPath = px.sunburst(
-        dataPath,
-        names='character',
-        parents='parent',
-        values='value',
-    )
+  
+    fig_Path =go.Figure(go.Sunburst(
+        labels=[ "Surgical Problems", 
+                    "Bleeding", 
+                    "Ischaemia", 
+                        "Enos", 
+                        "Noam", 
+                    "Obstruction", 
+                    "Peritonitis", 
+                        "Enoch", 
+                    "Perforation"],
+        parents=["",    "Surgical Problems",  
+                        "Surgical Problems",  
+                            "Seth", "Seth", 
+                        "Surgical Problems",  
+                        "Surgical Problems",  
+                            "Awan",  
+                        "Surgical Problems" 
+                        ],
+        values=[  65,    14,     12,     10,     2,      6,      6,      4,       4],
+        branchvalues="total",
+    ))
+    fig_Path.update_layout(margin = dict(t=0, l=0, r=0, b=0))
 
-    st.write(figPath)
+    st.write(fig_Path)
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
 
