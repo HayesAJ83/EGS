@@ -29,7 +29,9 @@ def main():
     page = st.sidebar.radio('Go to:',
                             ["Home",
                              "All Emergencies",
-                             "Acute Gallbladder",])
+                             "Acute Gallbladder",
+                             "Obstruction",
+                             ])
 
     if page ==   "Home":                show_home()
     elif page == "All Emergencies":     show_emerg_all()
