@@ -99,7 +99,7 @@ def show_home():
         """
         <div style="text-align: center; font-family:sans-serif; font-size: 20px">Emergency General Surgery - Categories</div>
         """,
-        height=32,
+        height=20,
     )
 
     fig2 = go.Figure(go.Sunburst(
@@ -196,7 +196,7 @@ def show_home():
     #    '''
     #    )
     st.write(fig2)
-  
+    st.write("#")
     with st.beta_expander('Disclaimer'):
         st.write('''The data on this site is artificial and created to allow development of tools.''')
 
