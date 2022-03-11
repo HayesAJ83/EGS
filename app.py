@@ -176,7 +176,15 @@ def show_emerg_all():
 
 
     fig =go.Figure(go.Sunburst(
-        labels=[ "Surgical", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
+        labels=[ "Surgical", 
+                    "Bleeding", 
+                    "Obstruction", 
+                        "Small bowel", 
+                        "Colonic", 
+                    "Ischaemia", 
+                    "Perforation", 
+                        "Enoch", 
+                    "Peritonitis"],
         parents=["",    
                     "Surgical",  
                     "Surgical",  
@@ -258,7 +266,7 @@ def show_obstruct():
         '''
         )
 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs21.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
