@@ -88,13 +88,7 @@ def show_home():
 
     st.info(
         """
-            This web app was made to experiment with visualisation methods for patient pathways
-        """
-        )
-
-    st.info(
-        """
-            Navigate with the sidebar on the left. If sidebar is not shown, **click > in top left** to display
+            This web app was made to experiment with visualisation methods for patient pathways. Navigate with the sidebar on the left.
         """
         )
 
@@ -185,8 +179,8 @@ def show_home():
 
     fig2.update_layout(margin = dict(t=0, l=0, r=0, b=0))
 
-    st.write(
-        '''Acute care surgical problems 
+    st.subheader(
+        '''Emergency General Surgery - Categories 
         '''
         )
     st.write(fig2)
