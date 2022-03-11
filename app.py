@@ -99,7 +99,7 @@ def show_home():
         """
         <div style="text-align: center; font-family:sans-serif; font-size: 20px">Emergency General Surgery - Categories</div>
         """,
-        height=20,
+        height=30,
     )
 
     fig2 = go.Figure(go.Sunburst(
@@ -189,7 +189,7 @@ def show_home():
     ))
 
     fig2.update_layout(
-    margin = dict(t=50, l=0, r=0, b=0))
+    margin = dict(t=10, l=0, r=0, b=0))
 
     #st.subheader(
     #    '''Emergency General Surgery - Categories 
