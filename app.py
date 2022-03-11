@@ -233,7 +233,7 @@ def show_obstruct():
         '''
         )
 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs07.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs08.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
