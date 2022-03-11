@@ -174,28 +174,6 @@ def show_emerg_all():
 
     st.write(fig_all)
 
-
-
-        character=["Surgical Problems", 
-                        "Bleeding", 
-                        "Ischaemia", 
-                            "Ischaemic bowel", 
-                            "Ischaemic colitis", 
-                        "Obstruction", 
-                        "Peritonitis", 
-                            "Enoch", 
-                        "Perforation"],
-
-        parent=   ["",  "Surgical Problems", 
-                        "Surgical Problems", 
-                            "Seth", 
-                            "Seth", 
-                        "Surgical Problems", 
-                        "Surgical Problems", 
-                            "Awan", 
-                            "Eve" ],
-        value=    [10, 14, 12, 10, 2, 6, 6, 4, 4])
-
   
     fig_Path =go.Figure(go.Sunburst(
         labels=[ "Surgical Problems", 
