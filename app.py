@@ -371,7 +371,7 @@ def show_emerg_all():
         font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=650,
+        autosize=False, height=600,
     )
 
     st.write(fig_all)
@@ -417,7 +417,7 @@ def show_biliary():
         font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=650,
+        autosize=False, height=600,
     )
 
     st.write(fig_gb)
@@ -462,7 +462,7 @@ def show_obstruct():
         font=dict(size = 11, color = 'midnight blue'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        autosize=False, height=650,
+        autosize=False, height=600,
     )
 
     st.write(fig_gb)
