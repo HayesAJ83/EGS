@@ -191,12 +191,101 @@ def show_home():
     fig2.update_layout(
     margin = dict(t=10, l=0, r=0, b=0))
 
-    #st.subheader(
-    #    '''Emergency General Surgery - Categories 
-    #    '''
-    #    )
     st.write(fig2)
     st.write("#")
+
+        st.write("#")
+
+    components.html(
+        """
+        <div style="text-align: center; font-family:sans-serif; font-size: 20px">Non-Specific Abdominal Pain - Categories</div>
+        """,
+        height=30,
+    )
+
+    fig3 = go.Figure(go.Sunburst(
+              labels=[ "Non-Specific Abdo Pain", 
+                "GI tract", 
+                    "Coeliac",
+                    "Diverticulitis",
+                    "Functional GI",
+                        "Functional abdo pain synd.",
+                        "Functional dyspepsia",
+                        "IBS",
+                    "Gallstones",
+                    "Gastroenteritis",
+                    "Peptic ulcer dis.",
+                        "H. Pylori",
+                        "Non-HP",
+                    "IBD",   
+                
+                "Gynaecology", 
+                    "Endometriosis",
+                    "Ovarian",
+                    "PID",
+                  
+                "Haematological", 
+                    "Sickle Cell", 
+                 
+                "Malignancy", 
+                    "Metastatic",
+                     
+                "Metabolic",
+                    "Hypercalcaemia",
+
+                "Urinary",
+                    "Infection",
+                    "Stones",
+               
+               ],
+    
+        parents=[ "",    
+                    "Non-Specific Abdo Pain",  
+                        "GI tract",
+                        "GI tract",
+                        "GI tract",
+                             "Functional GI",
+                             "Functional GI",
+                             "Functional GI",
+                        "GI tract",
+                        "GI tract",
+                        "GI tract",
+                             "Peptic ulcer dis.",
+                             "Peptic ulcer dis.",
+                        "GI tract",
+                  
+                    "Non-Specific Abdo Pain",  
+                        "Gynaecology",
+                        "Gynaecology",
+                        "Gynaecology",
+                 
+                    "Non-Specific Abdo Pain",  
+                        "Haematological", 
+                       
+                    "Non-Specific Abdo Pain",  
+                        "Malignancy",
+                    
+                    "Non-Specific Abdo Pain",  
+                        "Metabolic",
+                 
+                    "Non-Specific Abdo Pain",  
+                        "Urinary",
+                        "Urinary",
+                 
+                ],
+    
+        branchvalues="total",
+        maxdepth=3,
+        insidetextorientation='radial'
+    ))
+
+    fig3.update_layout(
+    margin = dict(t=10, l=0, r=0, b=0))
+
+    st.write(fig3)
+    st.write("#")
+
+
     with st.beta_expander('Disclaimer'):
         st.write('''The data on this site is artificial and created to allow development of tools.''')
 
