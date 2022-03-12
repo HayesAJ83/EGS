@@ -268,7 +268,6 @@ def show_home():
                        
                     "Non-Specific Abdo Pain",  
                         "Malignancy",
-                        "Malignancy",
                     
                     "Non-Specific Abdo Pain",  
                         "Metabolic",
