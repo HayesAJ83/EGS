@@ -192,8 +192,8 @@ def show_home():
     margin = dict(t=10, l=0, r=0, b=0))
 
     st.write(fig2)
-    st.write("##")
-
+    st.write("#")
+    st.write("#")
 
     components.html(
         """
@@ -223,7 +223,7 @@ def show_home():
                     "Ovarian",
                     "PID",
                   
-                "Haematological", 
+                "Blood", 
                     "Sickle Cell", 
                  
                 "Malignancy", 
@@ -262,7 +262,7 @@ def show_home():
                         "Gynaecology",
                  
                     "Non-Specific Abdo Pain",  
-                        "Haematological", 
+                        "Blood", 
                        
                     "Non-Specific Abdo Pain",  
                         "Malignancy",
