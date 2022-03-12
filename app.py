@@ -31,7 +31,7 @@ def main():
                             ["Home",
                              "All Emergencies",
                              "Acute Gallbladder",
-                             "Obstruction",
+                             "GI Obstruction",
                              "RIF pain"
                              
                              ])
@@ -39,7 +39,7 @@ def main():
     if page ==   "Home":                show_home()
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
-    elif page == "Obstruction":         show_obstruct()
+    elif page == "GI Obstruction":      show_obstruct()
     elif page == "RIF pain":            show_RIF()
 
     st.sidebar.subheader("About")
@@ -101,7 +101,7 @@ def show_home():
         """
         <div style="text-align: center; font-family:sans-serif; font-size: 20px">Emergency General Surgery - Categories</div>
         """,
-        height=30,
+        height=35,
     )
 
     fig2 = go.Figure(go.Sunburst(
@@ -219,7 +219,7 @@ def show_home():
                 ],
     
         branchvalues="total",
-        maxdepth=3,
+        maxdepth=4,
         insidetextorientation='radial'
     ))
 
@@ -234,7 +234,7 @@ def show_home():
         """
         <div style="text-align: center; font-family:sans-serif; font-size: 20px">Non-Specific Abdominal Pain - Categories</div>
         """,
-        height=30,
+        height=35,
     )
 
     fig3 = go.Figure(go.Sunburst(
@@ -327,7 +327,7 @@ def show_home():
                 ],
     
         branchvalues="total",
-        maxdepth=3,
+        maxdepth=4,
         insidetextorientation='radial'
     ))
 
