@@ -1,0 +1,169 @@
+{
+    "data": [
+        {
+            "type": "sankey",
+            "domain": {
+                "x": [0,1],
+                "y": [0,1] },
+            "orientation": "h",
+            "valueformat": ".0f",
+            "valuesuffix": "TWh",
+            "node": {
+                "pad": 15,
+                "thickness": 15,
+                "line": {
+                    "color": "black",
+                    "width": 0.5},
+                "label": [
+                    "A&E",
+                    "GP",
+                    "Referrals",
+
+                    "Gastric",
+                    "Small bowel",
+                    "Colonic",
+
+                    "Adhesional", 
+                    "Crohn's", 
+                    "Gallstone ileus", 
+                    "Hernia",
+                    "Diverticulitis",
+                    "Malignancy",
+                    "Volvulus",
+                    "Foreign body",
+
+                    "Gastrograffin",
+                    "Surgery",
+                    "Endoscopy",
+                    "Conservative Mx",
+                    "HDU",
+
+                    "Home",
+                    "Palliative"
+
+                ],
+                "color": [
+                    "rgba(255, 000, 0, 0.8)",   "rgba(255, 000,  0, 0.8)",
+                    "rgba(255, 000, 0, 0.8)",   "rgba(44,  160, 44, 0.8)",
+                    "rgba(044, 160, 44, 0.8)",  "rgba(44,  160, 44, 0.8)",
+                    "rgba(255, 127, 14, 0.8)",  "rgba(255, 127, 14, 0.8)",
+                    "rgba(255, 127, 14, 0.8)",  "rgba(255, 127, 14, 0.8)",
+                    "rgba(255, 127, 14, 0.8)",  "rgba(255, 127, 14, 0.8)",
+                    "rgba(255, 127, 14, 0.8)",  "rgba(000, 255, 0,  0.5)",
+                    "rgba(255, 240,  0, 0.8)",  "rgba(255, 127, 14, 0.8)",
+                    "rgba(100, 127, 180, 0.8)", "rgba(100, 127, 180, 0.8)", 
+                    "rgba(255, 255, 255, 0.2)",
+                    "rgba(100, 50,  10, 0.8)"
+                ]
+            },
+            "link": {
+                "source": [ 0, 0,0,   1,1,1,  2,2,   3, 3,  4,4,4,  5,  5, 5, 5,    6,  6,   7,   8,  9,  10, 10,  11, 12,12,  14,14, 15,15, 16,16,16,  17,17,17,17  ],
+                "target": [ 3, 4,5,   3,4,5,  4,5,  11,12,  6,8,9,  7, 10,11,12,   15, 17,  17,  15, 15,  15, 17,  17, 16,15,  15,19, 19,20, 15,19,20,  14,16,19,20  ],
+
+                "value":  [ 2,15,5,   1,1,2,  1,1,   2,1,   9,1,5,  1, 2, 3,  2,    4, 8,    1,   1,  4,   2,  2,   3,  1, 2,   2, 4, 15, 1,  2, 2, 1,  4, 2, 9, 1  ],
+                "color": [
+                    "rgba(0,0,96,0.2)",  "rgba(0,0,96,0.2)",  "rgba(0,0,96,0.2)",
+                    "rgba(0,0,96,0.2)",  "rgba(0,0,96,0.2)",
+                    "goldenrod"
+                ],
+                "label": [
+                    "", "testing", "", "", "",""
+                ]
+            }
+        }],
+    "layout": {
+        "title": {"text": ""},
+        "width": 1218,
+        "height": 872,
+        "font": {
+            "size": 10
+        },
+        "updatemenus": [
+            {
+                "y": 1,
+                "buttons": [
+                    {
+                        "label": "Light",
+                        "method": "relayout",
+                        "args": [ "paper_bgcolor", "white" ]
+                    },
+                    {
+                        "label": "Dark",
+                        "method": "relayout",
+                        "args": [ "paper_bgcolor", "black"]
+                    }
+                ]
+            },
+            {
+                "y": 0.9,
+                "buttons": [
+                    {
+                        "label": "Thick",
+                        "method": "restyle",
+                        "args": [ "node.thickness", 15 ]
+                    },
+                    {
+                        "label": "Thin",
+                        "method": "restyle",
+                        "args": [ "node.thickness", 8]
+                    }
+                ]
+            },
+            {
+                "y": 0.8,
+                "buttons": [
+                    {
+                        "label": "Small gap",
+                        "method": "restyle",
+                        "args": [ "node.pad", 15 ]
+                    },
+                    {
+                        "label": "Large gap",
+                        "method": "restyle",
+                        "args": [ "node.pad", 20]
+                    }
+                ]
+            },
+            {
+                "y": 0.7,
+                "buttons": [
+                    {
+                        "label": "Snap",
+                        "method": "restyle",
+                        "args": [ "arrangement", "snap" ]
+                    },
+                    {
+                        "label": "Perpendicular",
+                        "method": "restyle",
+                        "args": [ "arrangement", "perpendicular"]
+                    },
+                    {
+                        "label": "Freeform",
+                        "method": "restyle",
+                        "args": [ "arrangement", "freeform"]
+                    },
+                    {
+                        "label": "Fixed",
+                        "method": "restyle",
+                        "args": [ "arrangement", "fixed"]
+                    }
+                ]
+            },
+            {
+                "y": 0.6,
+                "buttons": [
+                    {
+                        "label": "Horizontal",
+                        "method": "restyle",
+                        "args": [ "orientation", "h" ]
+                    },
+                    {
+                        "label": "Vertical",
+                        "method": "restyle",
+                        "args": [ "orientation", "v"]
+                    }
+                ]
+            }
+        ]
+    }
+}
