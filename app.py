@@ -229,7 +229,7 @@ def show_home():
                     "Sickle Cell", 
                  
                 "Malignancy", 
-                    "Metastatic",
+                    "GI",
                      
                 "Metabolic",
                     "Hypercalcaemia",
@@ -267,6 +267,7 @@ def show_home():
                         "Blood", 
                        
                     "Non-Specific Abdo Pain",  
+                        "Malignancy",
                         "Malignancy",
                     
                     "Non-Specific Abdo Pain",  
@@ -436,7 +437,7 @@ def show_obstruct():
         '''
         )
 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs20.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_Obs22.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
