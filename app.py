@@ -32,6 +32,7 @@ def main():
                              "All Emergencies",
                              "Acute Gallbladder",
                              "Obstruction",
+                             "RIF pain"
                              
                              ])
 
@@ -39,6 +40,7 @@ def main():
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "Obstruction":         show_obstruct()
+    elif page == "RIF pain":            show_RIF()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -465,8 +467,55 @@ def show_obstruct():
     st.write(fig_gb)
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
+
+#-------------------------------------------------------------------------------------------------#
+#                                                                                                 #
+#  RIF (5)                                                                                    #
+# ::: Handles the                                                                                 #                                                                                              #
+#                                                                                                 #
+#-------------------------------------------------------------------------------------------------#
+def show_RIF():
+    st.title('''RIF pain patients''')
+    st.write(
+        '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
+        '''
+        )
+
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_RIF19.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    fig_gb = go.Figure(data=[go.Sankey(
+        valueformat = ".0f",
+        node = dict(
+        pad = 15,
+        thickness = 15,
+        line = dict( color = "black", width = 0.5),
+        label =  data['data'][0]['node']['label'],
+        color =  data['data'][0]['node']['color']
+        ),
+        link = dict(
+        source =  data['data'][0]['link']['source'],
+        target =  data['data'][0]['link']['target'],
+        value =   data['data'][0]['link']['value'],
+        label =   data['data'][0]['link']['label']
+    ))])
+
+    fig_gb.update_layout(
+        hovermode = 'x',
+        font=dict(size = 11, color = 'midnight blue'),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        autosize=False, height=650,
+    )
+
+    st.write(fig_gb)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
+    
             
 #-------------------------------------------------------------------------------------------#
+
+
 
 main()
 
