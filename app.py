@@ -109,20 +109,31 @@ def show_home():
         [ "Surgical Abdomen", 
                 "Bleeding", 
                     "GI tract",
+                        "Haemorrhoids","Diverticular",
                     "Mesentery",
                     "Solid organ",
+                        "Liver","Spleen","Kidney",
                     "Vascular",
+                        "AAA",
             
                 "Ischaemia", 
                     "Mesenteric",
                     "Ischaemic colitis",
-                    "Solid organs",
-            
+                    
                 "Obstruction", 
+                    "Bile duct",
+                        "CBD stones",
+                        "Mirizzi synd.",
                     "Small bowel", 
                         "Adhesions",
                         "Hernia",
                             "Groin",
+                                "Femoral",
+                                "Inguinal",
+                                    "Direct",
+                                    "Indirect",
+                                "Obturator",
+                            "Internal hernia",
                             "Ventral",
                         "Blockage",
                             "Gallstone ileus",
@@ -130,7 +141,9 @@ def show_home():
                         "Volvulus",
                         "Stricture",
                     "Gastric",
-            
+                        "Cancer",
+                        "Gastric volvulus",
+                     
                 "Peritonitis", 
                     "Appendicitis",
                         "Complicated",
@@ -138,29 +151,43 @@ def show_home():
                     "Colitis",
                         "Diverticulitis",
                         "Ischaemic",
+                        "Ulcerative colitis",
                     "Gallbladder",
+                        "Cholecystitis",
+                        "Gallbladder pain",
                     "Pancreatitis",
                         "Biliary",
                         "Non-biliary",
-                    "Perforation"
+                    "Perforation",
+                        "Peptic ulcer",
                 ],
     
         parents=[ "",    
                     "Surgical Abdomen",  
                         "Bleeding",
+                             "GI tract","GI tract",
                         "Bleeding",
                         "Bleeding",
+                             "Solid organ","Solid organ","Solid organ",
                         "Bleeding",
+                             "Vascular",
                     
                     "Surgical Abdomen",  
                         "Ischaemia",
                         "Ischaemia",
-                        "Ischaemia",
                 
                     "Surgical Abdomen",  
+                            "Obstruction",
+                                "Bile duct","Bile duct",
                             "Obstruction", 
                                 "Small bowel",
                                 "Small bowel",
+                                    "Hernia",
+                                         "Groin",
+                                         "Groin",
+                                             "Inguinal",
+                                             "Inguinal",
+                                         "Groin",
                                     "Hernia",
                                     "Hernia",
                                 "Small bowel",
@@ -170,6 +197,8 @@ def show_home():
                                 "Colonic",
                                 "Colonic",
                             "Obstruction",
+                                "Gastric",
+                                "Gastric",
                             
                     "Surgical Abdomen",  
                         "Peritonitis",
@@ -178,11 +207,15 @@ def show_home():
                         "Peritonitis",
                             "Colitis",
                             "Colitis",
+                            "Colitis",
                         "Peritonitis",
+                            "Gallbladder",
+                            "Gallbladder",
                         "Peritonitis",
                             "Pancreatitis",
                             "Pancreatitis",
-                        "Peritonitis" 
+                        "Peritonitis",
+                            "Perforation",
                 ],
     
         branchvalues="total",
@@ -205,7 +238,8 @@ def show_home():
     )
 
     fig3 = go.Figure(go.Sunburst(
-              labels=[ "Non-Specific Abdo Pain", 
+              labels=
+              [ "Non-Specific Abdo Pain", 
                 "GI tract", 
                     "Coeliac",
                     "Diverticulitis",
@@ -225,11 +259,14 @@ def show_home():
                     "Ovarian",
                     "PID",
                   
-                "Blood", 
+                "Haematological", 
                     "Sickle Cell", 
                  
                 "Malignancy", 
-                    "GI",
+                    "Pancreatic Ca",
+                    "Neuroendocrine",
+                    "Stomach Ca",
+                    "Ovarian Ca",
                      
                 "Metabolic",
                     "Hypercalcaemia",
@@ -239,8 +276,10 @@ def show_home():
                     "Stones",
                 
                 "Musculoskeletal",
-            
-               
+                   
+                "Ischaemia",
+                   "Mesenteric angina",
+                   "Solid organ",
                ],
     
         parents=[ "",    
@@ -264,9 +303,12 @@ def show_home():
                         "Gynaecology",
                  
                     "Non-Specific Abdo Pain",  
-                        "Blood", 
+                        "Haematological", 
                        
                     "Non-Specific Abdo Pain",  
+                        "Malignancy",
+                        "Malignancy",
+                        "Malignancy",
                         "Malignancy",
                     
                     "Non-Specific Abdo Pain",  
@@ -277,7 +319,10 @@ def show_home():
                         "Urinary",
 
                     "Non-Specific Abdo Pain",  
-                        "Musculoskeletal",
+                        
+                    "Non-Specific Abdo Pain",  
+                        "Ischaemia",
+                        "Ischaemia",
                  
                 ],
     
