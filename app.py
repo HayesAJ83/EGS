@@ -194,7 +194,6 @@ def show_home():
     st.write(fig2)
     st.write("#")
 
-        st.write("#")
 
     components.html(
         """
@@ -236,6 +235,9 @@ def show_home():
                 "Urinary",
                     "Infection",
                     "Stones",
+                
+                "Musculoskeletal",
+            
                
                ],
     
@@ -271,6 +273,9 @@ def show_home():
                     "Non-Specific Abdo Pain",  
                         "Urinary",
                         "Urinary",
+
+                    "Non-Specific Abdo Pain",  
+                        "Musculoskeletal",
                  
                 ],
     
@@ -284,7 +289,6 @@ def show_home():
 
     st.write(fig3)
     st.write("#")
-
 
     with st.beta_expander('Disclaimer'):
         st.write('''The data on this site is artificial and created to allow development of tools.''')
