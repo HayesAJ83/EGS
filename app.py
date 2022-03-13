@@ -618,8 +618,6 @@ def show_networkflow():
         """, 
         height=500,
     )
-    st.write("#")
-
     components.html(
         """
         <head>
@@ -665,7 +663,6 @@ def show_networkflow():
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
-
 #-------------------------------------------------------------------------------------------#
 
 
