@@ -106,15 +106,20 @@ def show_home():
 
     fig2 = go.Figure(go.Sunburst(
         labels=
-        [ "Surgical Abdomen", 
+       [ "Surgical Abdomen", 
                 "Bleeding", 
                     "GI tract",
-                        "Haemorrhoids","Diverticular",
+                        "Upper",
+                        "Lower",
+                             "Diverticular",
+                             "Haemorrhoids",
                     "Mesentery",
+                        "Trauma",
+                             "Blunt","Penetrating",
                     "Solid organ",
                         "Liver","Spleen","Kidney",
                     "Vascular",
-                        "AAA",
+                        "AAA rupture",
             
                 "Ischaemia", 
                     "Mesenteric",
@@ -134,7 +139,9 @@ def show_home():
                                     "Indirect",
                                 "Obturator",
                             "Internal hernia",
+                                 "Band adhesion","Mesenteric defect",
                             "Ventral",
+                                 "Incisional","Umbilical",
                         "Blockage",
                             "Gallstone ileus",
                     "Colonic",
@@ -151,6 +158,7 @@ def show_home():
                     "Colitis",
                         "Diverticulitis",
                         "Ischaemic",
+                        "Stercoral colitis",
                         "Ulcerative colitis",
                     "Gallbladder",
                         "Cholecystitis",
@@ -159,14 +167,21 @@ def show_home():
                         "Biliary",
                         "Non-biliary",
                     "Perforation",
-                        "Peptic ulcer",
+                        "Upper GI",
+                             "Duodenal ulcer","Gastric ulcer",
+                        "Lower GI",
+                             "Diverticular","Stercoral",
                 ],
     
         parents=[ "",    
                     "Surgical Abdomen",  
                         "Bleeding",
-                             "GI tract","GI tract",
+                             "GI tract",
+                             "GI tract",
+                                 "Lower","Lower",
                         "Bleeding",
+                             "Mesentery",
+                                 "Trauma","Trauma",
                         "Bleeding",
                              "Solid organ","Solid organ","Solid organ",
                         "Bleeding",
@@ -189,7 +204,9 @@ def show_home():
                                              "Inguinal",
                                          "Groin",
                                     "Hernia",
+                                        "Internal hernia","Internal hernia",
                                     "Hernia",
+                                         "Ventral","Ventral",
                                 "Small bowel",
                                     "Blockage",
                                 
@@ -208,6 +225,7 @@ def show_home():
                             "Colitis",
                             "Colitis",
                             "Colitis",
+                            "Colitis",
                         "Peritonitis",
                             "Gallbladder",
                             "Gallbladder",
@@ -216,10 +234,13 @@ def show_home():
                             "Pancreatitis",
                         "Peritonitis",
                             "Perforation",
+                                "Upper GI","Upper GI",
+                            "Perforation",
+                                "Lower GI","Lower GI",
                 ],
     
         branchvalues="total",
-        maxdepth=4,
+        maxdepth=3,
         insidetextorientation='radial'
     ))
 
@@ -327,7 +348,7 @@ def show_home():
                 ],
     
         branchvalues="total",
-        maxdepth=4,
+        maxdepth=3,
         insidetextorientation='radial'
     ))
 
