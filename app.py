@@ -49,7 +49,7 @@ def main():
     st.sidebar.subheader("About")
     st.sidebar.info(
         """
-            This web app was built by General Surgeon and Programer Alastair Hayes who also built [SurgicalNames](https://www.surgicalnames.com)
+            This web app was built by General Surgeon and Programer Alastair Hayes who also built [SurgicalNames.com](https://www.surgicalnames.com)
         """
         )
 
