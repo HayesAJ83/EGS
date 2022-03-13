@@ -260,7 +260,7 @@ def show_home():
 
     fig3 = go.Figure(go.Sunburst(
               labels=
-              [ "Non-Surgical Abdomen", 
+               [ "Non-Surgical Abdomen", 
                 "GI tract", 
                     "Coeliac",
                     "Diverticulitis",
@@ -301,6 +301,8 @@ def show_home():
                 "Ischaemia",
                    "Mesenteric angina",
                    "Solid organ",
+         
+                "Non-Specific AP",
             
                ],
     
@@ -346,6 +348,8 @@ def show_home():
                     "Non-Surgical Abdomen",  
                         "Ischaemia",
                         "Ischaemia",
+                    
+                    "Non-Surgical Abdomen",
                  
                 ],
     
