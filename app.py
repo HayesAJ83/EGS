@@ -677,7 +677,7 @@ def show_networkflow():
         </body>
 
         """, 
-        height=400,
+        height=350, width=300,
     )
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
