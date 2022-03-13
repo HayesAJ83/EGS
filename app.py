@@ -260,7 +260,7 @@ def show_home():
 
     fig3 = go.Figure(go.Sunburst(
               labels=
-              [ "Non-Specific Abdo Pain", 
+              [ "Non-Surgical Abdomen", 
                 "GI tract", 
                     "Coeliac",
                     "Diverticulitis",
@@ -301,10 +301,11 @@ def show_home():
                 "Ischaemia",
                    "Mesenteric angina",
                    "Solid organ",
+            
                ],
     
         parents=[ "",    
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "GI tract",
                         "GI tract",
                         "GI tract",
@@ -318,30 +319,31 @@ def show_home():
                              "Peptic ulcer dis.",
                         "GI tract",
                   
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "Gynaecology",
                         "Gynaecology",
                         "Gynaecology",
                  
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "Haematological", 
                        
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "Malignancy",
                         "Malignancy",
                         "Malignancy",
                         "Malignancy",
                     
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "Metabolic",
                  
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         "Urinary",
                         "Urinary",
 
-                    "Non-Specific Abdo Pain",  
+                    "Non-Surgical Abdomen",  
                         
-                    "Non-Specific Abdo Pain",  
+                 
+                    "Non-Surgical Abdomen",  
                         "Ischaemia",
                         "Ischaemia",
                  
