@@ -589,7 +589,7 @@ def show_RIF():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_networkflow():
-    st.title('''Test - Network with flow''')
+    st.title('''Network Flow''')
 
     components.html(
         """
@@ -603,7 +603,7 @@ def show_networkflow():
             <div id="graph"></div>
 
             <script>
-                fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/miserables.json").then(res => res.json()).then(data => {
+                fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/networkflow.json").then(res => res.json()).then(data => {
                 const Graph = ForceGraph()
                 (document.getElementById('graph'))
                     .graphData(data)
