@@ -591,44 +591,46 @@ def show_RIF():
 def show_test():
     st.title('''Test page for ideas''')
 
-
     components.html(
-    """
-    <head>
-        <style> body { margin: 0; } </style>
+        """
+        <head>
+            <style> body { margin: 0; } </style>
 
-        <script src="//unpkg.com/3d-force-graph"></script>
-        <!--<script src="../../dist/3d-force-graph.js"></script>-->
-    </head>
+            <script src="//unpkg.com/3d-force-graph"></script>
+            <!--<script src="../../dist/3d-force-graph.js"></script>-->
+        </head>
 
-    <body>
-        <div id="3d-graph"></div>
+        <body>
+            <div id="3d-graph"></div>
 
-    <script>
-        // Random tree
-        const N = 300;
-        const gData = {
-        nodes: [...Array(N).keys()].map(i => ({ id: i })),
-        links: [...Array(N).keys()]
-            .filter(id => id)
-            .map(id => ({
-            source: id,
-            target: Math.round(Math.random() * (id-1))
-            }))
-        };
+        <script>
+            // Random tree
+            const N = 300;
+            const gData = {
+            nodes: [...Array(N).keys()].map(i => ({ id: i })),
+            links: [...Array(N).keys()]
+                .filter(id => id)
+                .map(id => ({
+                source: id,
+                target: Math.round(Math.random() * (id-1))
+                }))
+            };
 
-        const Graph = ForceGraph3D()
-        (document.getElementById('3d-graph'))
-            .graphData(gData);
-    </script>
-    </body>
-    """,
-    height=500,
+            const Graph = ForceGraph3D()
+            (document.getElementById('3d-graph'))
+                .graphData(gData);
+        </script>
+        </body>
+        """, 
+        height=500,
     )
 
 
-   st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
+
+#-------------------------------------------------------------------------------------------#
+
 
 
 main()
