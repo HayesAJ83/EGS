@@ -32,7 +32,8 @@ def main():
                              "All Emergencies",
                              "Acute Gallbladder",
                              "GI Obstruction",
-                             "RIF pain"
+                             "RIF pain",
+                             "Test page",
                              
                              ])
 
@@ -41,6 +42,7 @@ def main():
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "GI Obstruction":      show_obstruct()
     elif page == "RIF pain":            show_RIF()
+    elif page == "Test page":           show_test()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -49,32 +51,6 @@ def main():
         """
         )
 
-#-------------------------------------------------------------------------------------------------#
-#                                                                                                 #
-#  About the team                                                                                 #
-# :::                                                                                             #
-#                                                                                                 #
-#-------------------------------------------------------------------------------------------------#
-def show_the_app_team():
-    st.write('''_To show sidebar, click **>** in top left_''')
-    st.title("App Designer")
-    st.markdown('''The team consists of a group of General Surgeons based in Edinburgh who are
-                motivated to develop software to improve surgical **data systems**,
-                **research** and **education**.''')
-    
-    st.subheader("Project Lead & App Developer")
-    with st.beta_expander('Alastair Hayes'):
-        col1, col2, col3 = st.beta_columns(3)
-        image = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/x_Alastair_Hayes.png'
-        col1.image(image, width=100);
-        col2.write('''Alastair is a General Surgery Specialty Training Registrar in Edinburgh with
-                    interests in Endocrine, Upper GI & Emergency General Surgery. His qualifications include FRCSEd(Gen) & PhD.''')
-        col3.write('''His main coding language is Python & is working to develop software solutions for clinical
-                    data system problems, research & education in surgical practice.''')
-
- 
-
- 
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
@@ -514,7 +490,7 @@ def show_biliary():
 
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
-#  Obstruction (4)                                                                                    #
+#  GI Obstruction (4)                                                                                    #
 # ::: Handles the                                                                                 #                                                                                              #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
@@ -605,6 +581,20 @@ def show_RIF():
 #-------------------------------------------------------------------------------------------#
 
 
+
+#-------------------------------------------------------------------------------------------------#
+#                                                                                                 #
+#  Test (6)                                                                                    #
+# ::: Handles the                                                                                             #
+#                                                                                                 #
+#-------------------------------------------------------------------------------------------------#
+def show_test():
+   
+
+
+    
+   st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
+    
 
 main()
 
