@@ -654,7 +654,7 @@ def show_networkflow():
     components.html(
         """
         <head>
-            <style> body { margin: 10; } </style>
+            <style> body { margin: 15; } </style>
             <script src="//unpkg.com/force-graph"></script>
             <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
@@ -677,7 +677,7 @@ def show_networkflow():
         </body>
 
         """, 
-        height=500,
+        height=400,
     )
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
