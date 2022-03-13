@@ -591,7 +591,7 @@ def show_RIF():
 def show_networkflow():
     st.title('''Network Flow''')
     st.write("#")
-        components.html(
+    components.html(
         """
         <head>
             <style> body { margin: 0; } </style>
