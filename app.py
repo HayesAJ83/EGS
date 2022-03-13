@@ -33,7 +33,7 @@ def main():
                              "Acute Gallbladder",
                              "GI Obstruction",
                              "RIF pain",
-                             "Test page",
+                             "Test - Network Flow",
                              
                              ])
 
@@ -42,7 +42,7 @@ def main():
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "GI Obstruction":      show_obstruct()
     elif page == "RIF pain":            show_RIF()
-    elif page == "Test page":           show_test()
+    elif page == "Test - Network Flow": show_networkflow()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -588,43 +588,38 @@ def show_RIF():
 # ::: Handles the                                                                                             #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def show_test():
-    st.title('''Test page for ideas''')
+def show_networkflow():
+    st.title('''Test - Force directed with flow''')
+    st.write("#")
 
     components.html(
         """
         <head>
             <style> body { margin: 0; } </style>
 
-            <script src="//unpkg.com/3d-force-graph"></script>
-            <!--<script src="../../dist/3d-force-graph.js"></script>-->
+            <script src="//unpkg.com/force-graph"></script>
+            <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
 
         <body>
-            <div id="3d-graph"></div>
+            <div id="graph"></div>
 
-        <script>
-            // Random tree
-            const N = 300;
-            const gData = {
-            nodes: [...Array(N).keys()].map(i => ({ id: i })),
-            links: [...Array(N).keys()]
-                .filter(id => id)
-                .map(id => ({
-                source: id,
-                target: Math.round(Math.random() * (id-1))
-                }))
-            };
-
-            const Graph = ForceGraph3D()
-            (document.getElementById('3d-graph'))
-                .graphData(gData);
-        </script>
+            <script>
+                fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+                const Graph = ForceGraph()
+                (document.getElementById('graph'))
+                    .graphData(data)
+                    .nodeLabel('id')
+                    .nodeAutoColorBy('group')
+                    .linkDirectionalParticles("value")
+                    .linkDirectionalParticleSpeed(d => d.value * 0.001);
+                });
+            </script>
         </body>
-        """, 
-        height=500,
-    )
 
+        """, 
+        height=400,
+    )
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
