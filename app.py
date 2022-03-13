@@ -591,34 +591,7 @@ def show_RIF():
 def show_networkflow():
     st.title('''Network Flow''')
     st.write("#")
-    components.html(
-        """
-        <head>
-            <style> body { margin: 0; } </style>
-            <script src="//unpkg.com/force-graph"></script>
-            <!--<script src="../../dist/force-graph.js"></script>-->
-        </head>
-
-        <body>
-            <div id="graph"></div>
-
-            <script>
-                fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/networkflow.json").then(res => res.json()).then(data => {
-                const Graph = ForceGraph()
-                (document.getElementById('graph'))
-                    .graphData(data)
-                    .nodeLabel('id')
-                    .nodeAutoColorBy('group')
-                    .linkDirectionalParticles("value")
-                    .linkDirectionalParticleSpeed(d => d.value * 0.001);
-                });
-            </script>
-        </body>
-
-        """, 
-        height=500,
-    )
-    components.html(
+        components.html(
         """
         <head>
             <style> body { margin: 0; } </style>
@@ -657,6 +630,33 @@ def show_networkflow():
                     .graphData(gData);
             </script>
         </body>
+        """, 
+        height=500,
+    )
+    components.html(
+        """
+        <head>
+            <style> body { margin: 0; } </style>
+            <script src="//unpkg.com/force-graph"></script>
+            <!--<script src="../../dist/force-graph.js"></script>-->
+        </head>
+
+        <body>
+            <div id="graph"></div>
+
+            <script>
+                fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/networkflow.json").then(res => res.json()).then(data => {
+                const Graph = ForceGraph()
+                (document.getElementById('graph'))
+                    .graphData(data)
+                    .nodeLabel('id')
+                    .nodeAutoColorBy('group')
+                    .linkDirectionalParticles("value")
+                    .linkDirectionalParticleSpeed(d => d.value * 0.001);
+                });
+            </script>
+        </body>
+
         """, 
         height=500,
     )
