@@ -33,7 +33,8 @@ def main():
                              "Acute Gallbladder",
                              "GI Obstruction",
                              "RIF pain",
-                             "Network Flow",
+                             "Network Flow - curved",
+                             "Network Flow - straight",
                              
                              ])
 
@@ -41,8 +42,9 @@ def main():
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "GI Obstruction":      show_obstruct()
-    elif page == "RIF pain":            show_RIF()
-    elif page == "Network Flow":        show_networkflow()
+    elif page == "RIF pain":                    show_RIF()
+    elif page == "Network Flow - curved":       show_networkflowcurve()
+    elif page == "Network Flow - straight":     show_networkflowstraight()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -588,8 +590,8 @@ def show_RIF():
 # ::: Handles the                                                                                             #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def show_networkflow():
-    st.title('''Network Flow''')
+def show_networkflowcurve():
+    st.title('''Network Flow - Curved connectors''')
     st.write("#")
     components.html(
         """
@@ -633,6 +635,18 @@ def show_networkflow():
         """, 
         height=500,
     )
+   
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
+
+#-------------------------------------------------------------------------------------------------#
+#                                                                                                 #
+#  Flow (7)                                                                                    #
+# ::: Handles the                                                                                             #
+#                                                                                                 #
+#-------------------------------------------------------------------------------------------------#
+def show_networkflowstraight():
+    st.title('''Network Flow - Straight connectors''')
+    st.write("#")
     components.html(
         """
         <head>
@@ -664,8 +678,6 @@ def show_networkflow():
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
 #-------------------------------------------------------------------------------------------#
-
-
 
 main()
 
