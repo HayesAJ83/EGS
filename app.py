@@ -592,7 +592,6 @@ def show_RIF():
 #-------------------------------------------------------------------------------------------------#
 def show_networkflowcurve():
     st.title('''Network Flow - Curved connectors''')
-    st.write("#")
     components.html(
         """
         <head>
@@ -629,6 +628,7 @@ def show_networkflowcurve():
                 (document.getElementById('graph'))
                     .linkDirectionalParticles(2)
                     .linkCurvature('curvature')
+                    .nodeAutoColorBy('source')
                     .graphData(gData);
             </script>
         </body>
@@ -646,7 +646,6 @@ def show_networkflowcurve():
 #-------------------------------------------------------------------------------------------------#
 def show_networkflowstraight():
     st.title('''Network Flow - Straight connectors''')
-    st.write("#")
     components.html(
         """
         <head>
