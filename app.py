@@ -33,8 +33,7 @@ def main():
                              "Acute Gallbladder",
                              "GI Obstruction",
                              "RIF pain",
-                             "Network Flow - curved",
-                             "Network Flow - straight",
+                             "Network Flow",
                              
                              ])
 
@@ -42,9 +41,9 @@ def main():
     elif page == "All Emergencies":     show_emerg_all()
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "GI Obstruction":      show_obstruct()
-    elif page == "RIF pain":                    show_RIF()
-    elif page == "Network Flow - curved":       show_networkflowcurve()
-    elif page == "Network Flow - straight":     show_networkflowstraight()
+    elif page == "RIF pain":            show_RIF()
+    #elif page == "Network Flow - curved":       show_networkflowcurve()
+    elif page == "Network Flow":        show_networkflow()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -645,8 +644,13 @@ def show_networkflowcurve():
 # ::: Handles the                                                                                             #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def show_networkflowstraight():
-    st.title('''Network Flow - Straight connectors''')
+def show_networkflow():
+    st.title('''Network Flow''')
+    st.info(
+        """
+            Grab the large dots to pull them apart. This is experimental and actively under development.
+        """
+        )
     components.html(
         """
         <head>
