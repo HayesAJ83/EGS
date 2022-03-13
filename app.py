@@ -589,16 +589,13 @@ def show_RIF():
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
 def show_networkflow():
-    st.title('''Test - Force directed with flow''')
-    st.write("#")
+    st.title('''Test - Network with flow''')
 
     components.html(
         """
         <head>
             <style> body { margin: 0; } </style>
-
             <script src="//unpkg.com/force-graph"></script>
-            <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
 
         <body>
@@ -618,7 +615,7 @@ def show_networkflow():
         </body>
 
         """, 
-        height=400,
+        height=500,
     )
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
