@@ -654,13 +654,15 @@ def show_networkflow():
     components.html(
         """
         <head>
-            <style> body { margin: 15; } </style>
+            <style> body { margin: 10; } </style>
             <script src="//unpkg.com/force-graph"></script>
             <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
 
         <body>
-            <div id="graph"></div>
+            <div class="row justify-content-center">
+                <div id="graph"></div>
+            </div>
 
             <script>
                 fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/networkflow.json").then(res => res.json()).then(data => {
@@ -677,7 +679,7 @@ def show_networkflow():
         </body>
 
         """, 
-        height=350, width=300,
+        height=350, width=500,
     )
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
