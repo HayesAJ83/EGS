@@ -654,7 +654,7 @@ def show_networkflow():
     components.html(
         """
         <head>
-            <style> body { margin: 5; } </style>
+            <style> body { margin: 10; } </style>
             <script src="//unpkg.com/force-graph"></script>
             <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
