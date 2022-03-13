@@ -595,7 +595,7 @@ def show_networkflowcurve():
     components.html(
         """
         <head>
-            <style> body { margin: 0; } </style>
+            <style> body { margin: 5; } </style>
 
             <script src="//unpkg.com/force-graph"></script>
             <!--<script src="../../dist/force-graph.js"></script>-->
@@ -606,13 +606,15 @@ def show_networkflowcurve():
 
             <script>
                 const gData = {
+
                 nodes: [...Array(9).keys()].map(i => ({ id: i })),
+                
                 links: [
                     { source: 1, target: 4, curvature: 0,    "value": 1 },
                     { source: 1, target: 4, curvature: 0.5,  "value": 2 },
                     { source: 1, target: 4, curvature: -0.5, "value": 5 },
                     { source: 5, target: 2, curvature: 0.3,  "value": 2 },
-                    { source: 2, target: 5, curvature: 0.3,  "value": 9 },
+                    { source: 2, target: 5, curvature: 0.3,  "value": 6 },
                     { source: 0, target: 3, curvature: 0,    "value": 7 },
                     { source: 3, target: 3, curvature: 0.5,  "value": 3 },
                     { source: 0, target: 4, curvature: 0.2,  "value": 2 },
@@ -648,7 +650,7 @@ def show_networkflowstraight():
     components.html(
         """
         <head>
-            <style> body { margin: 0; } </style>
+            <style> body { margin: 5; } </style>
             <script src="//unpkg.com/force-graph"></script>
             <!--<script src="../../dist/force-graph.js"></script>-->
         </head>
