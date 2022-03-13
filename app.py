@@ -664,6 +664,7 @@ def show_networkflowstraight():
                 (document.getElementById('graph'))
                     .graphData(data)
                     .nodeLabel('id')
+                    .linkCurvature('curvature')
                     .nodeAutoColorBy('group')
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
