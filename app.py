@@ -672,6 +672,9 @@ def show_networkflow():
                     .nodeLabel('id')
                     .linkCurvature('curvature')
                     .nodeAutoColorBy('group')
+                    .onNodeDragEnd(node => {
+                        node.fx = node.x;
+                        node.fy = node.y;
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
                 
@@ -709,6 +712,9 @@ def show_networkflow():
                     .nodeId('id')
                     .linkCurvature('curvature')
                     .nodeAutoColorBy('group')
+                    .onNodeDragEnd(node => {
+                        node.fx = node.x;
+                        node.fy = node.y;
                     .nodeCanvasObject((node, ctx, globalScale) => {
                     const label = node.id;
                     const fontSize = 12/globalScale;
