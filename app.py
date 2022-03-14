@@ -674,10 +674,7 @@ def show_networkflow():
                     .nodeAutoColorBy('group')
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
-                    .onNodeDragEnd(node => {
-                        node.fx = node.x;
-                        node.fy = node.y;
-                        });
+                    
                 });
             </script>
         </body>
