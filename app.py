@@ -675,8 +675,7 @@ def show_networkflow():
                     .onNodeDragEnd(node => {
                         node.fx = node.x;
                         node.fy = node.y;
-                    .linkDirectionalParticles("value")
-                    .linkDirectionalParticleSpeed(d => d.value * 0.001);
+            
                 
 
                 });
