@@ -688,7 +688,7 @@ def show_networkflow():
         height=350, width=500,
     )
 
-        components.html(
+    components.html(
         """
         <head>
             <style> body { margin: 10; } </style>
@@ -731,7 +731,7 @@ def show_networkflow():
                     const bckgDimensions = node.__bckgDimensions;
                     bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
                     });
-                    
+
                 Graph.d3Force('center', null);
 
                 // fit to canvas when engine stops
