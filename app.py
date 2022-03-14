@@ -675,7 +675,6 @@ def show_networkflow():
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
                 
-                    .onEngineStop(() => Graph.zoomToFit(400));
 
                 });
             </script>
