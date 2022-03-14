@@ -674,6 +674,12 @@ def show_networkflow():
                     .nodeAutoColorBy('group')
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
+                
+                Graph.d3Force('center', null);
+
+                // fit to canvas when engine stops
+                Graph.onEngineStop(() => Graph.zoomToFit(400));
+
                 });
             </script>
         </body>
@@ -725,6 +731,11 @@ def show_networkflow():
                     const bckgDimensions = node.__bckgDimensions;
                     bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
                     });
+                    
+                Graph.d3Force('center', null);
+
+                // fit to canvas when engine stops
+                Graph.onEngineStop(() => Graph.zoomToFit(400));
                 });
             </script>
         </body>
