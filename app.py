@@ -677,7 +677,7 @@ def show_networkflow():
                         node.fy = node.y;
             
                 
-
+                    });
                 });
             </script>
         </body>
