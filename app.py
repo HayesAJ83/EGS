@@ -672,17 +672,13 @@ def show_networkflow():
                     .nodeLabel('id')
                     .linkCurvature('curvature')
                     .nodeAutoColorBy('group')
-                    
                     .linkDirectionalParticles("value")
                     .linkDirectionalParticleSpeed(d => d.value * 0.001);
                     .onNodeDragEnd(node => {
                         node.fx = node.x;
                         node.fy = node.y;
                 
-                Graph.d3Force('center', null);
-
-                // fit to canvas when engine stops
-                Graph.onEngineStop(() => Graph.zoomToFit(400));
+                    .onEngineStop(() => Graph.zoomToFit(400));
 
                 });
             </script>
