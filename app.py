@@ -672,29 +672,58 @@ def show_networkflow():
                     .nodeLabel('id')
                     .linkCurvature('curvature')
                     .nodeAutoColorBy('group')
-         
+                    .linkDirectionalParticles("value")
+                    .linkDirectionalParticleSpeed(d => d.value * 0.001);
+                });
+            </script>
+        </body>
 
+        """, 
+        height=350, width=500,
+    )
+
+        components.html(
+        """
+        <head>
+            <style> body { margin: 10; } </style>
+            <script src="//unpkg.com/force-graph"></script>
+            <!--<script src="../../dist/force-graph.js"></script>-->
+        </head>
+
+        <body>
+            <div class="row justify-content-center">
+                <div id="graph1"></div>
+            </div>
+
+            <script>
+                fetch("https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/networkflow.json").then(res => res.json()).then(data => {
+                const Graph = ForceGraph()
+                (document.getElementById('graph1'))
+                    .graphData(data)
+                    .nodeId('id')
+                    .linkCurvature('curvature')
+                    .nodeAutoColorBy('group')
                     .nodeCanvasObject((node, ctx, globalScale) => {
-                        const label = node.id;
-                        const fontSize = 12/globalScale;
-                        ctx.font = `${fontSize}px Sans-Serif`;
-                        const textWidth = ctx.measureText(label).width;
-                        const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
+                    const label = node.id;
+                    const fontSize = 12/globalScale;
+                    ctx.font = `${fontSize}px Sans-Serif`;
+                    const textWidth = ctx.measureText(label).width;
+                    const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
 
-                        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                        ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
 
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillStyle = node.color;
-                        ctx.fillText(label, node.x, node.y);
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillStyle = node.color;
+                    ctx.fillText(label, node.x, node.y);
 
-                        node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
+                    node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
                     })
                     .nodePointerAreaPaint((node, color, ctx) => {
-                        ctx.fillStyle = color;
-                        const bckgDimensions = node.__bckgDimensions;
-                        bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+                    ctx.fillStyle = color;
+                    const bckgDimensions = node.__bckgDimensions;
+                    bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
                     });
                 });
             </script>
