@@ -595,7 +595,7 @@ def show_scores():
         '''
         )
 
-    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_scoring02.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_scoring03.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
