@@ -588,7 +588,7 @@ def show_RIF():
 # ::: Handles the                                                                                 #                                                                                              #
 #                                                                                                 #
 #-------------------------------------------------------------------------------------------------#
-def show_scoring():
+def show_scores():
     st.title('''Scoring systems''')
     st.write(
         '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
