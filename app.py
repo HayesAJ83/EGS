@@ -33,6 +33,7 @@ def main():
                              "Acute Gallbladder",
                              "GI Obstruction",
                              "RIF pain",
+                             "EGS scoring systems",
                              "Network Flow",
                              
                              ])
@@ -42,6 +43,7 @@ def main():
     elif page == "Acute Gallbladder":   show_biliary()
     elif page == "GI Obstruction":      show_obstruct()
     elif page == "RIF pain":            show_RIF()
+    elif page == "EGS scoring systems": show_scores()
     #elif page == "Network Flow - curved":       show_networkflowcurve()
     elif page == "Network Flow":        show_networkflow()
 
@@ -578,11 +580,53 @@ def show_RIF():
     st.write(fig_gb)
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
+  
+
+#-------------------------------------------------------------------------------------------------#
+#                                                                                                 #
+#  Scoring systems (5)                                                                                    #
+# ::: Handles the                                                                                 #                                                                                              #
+#                                                                                                 #
+#-------------------------------------------------------------------------------------------------#
+def show_scoring():
+    st.title('''Scoring systems''')
+    st.write(
+        '''Click and drag elements of the Sankey diagram to best see how parts of the pathway communicate. 
+        '''
+        )
+
+    url = 'https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/sankey_scoring01.json'   #https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    fig_gb = go.Figure(data=[go.Sankey(
+        valueformat = ".0f",
+        node = dict(
+        pad = 15,
+        thickness = 15,
+        line = dict( color = "black", width = 0.5),
+        label =  data['data'][0]['node']['label'],
+        color =  data['data'][0]['node']['color']
+        ),
+        link = dict(
+        source =  data['data'][0]['link']['source'],
+        target =  data['data'][0]['link']['target'],
+        value =   data['data'][0]['link']['value'],
+        label =   data['data'][0]['link']['label']
+    ))])
+
+    fig_gb.update_layout(
+        hovermode = 'x',
+        font=dict(size = 11, color = 'midnight blue'),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        autosize=False, height=650,
+    )
+
+    st.write(fig_gb)
+    st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
+    
             
-#-------------------------------------------------------------------------------------------#
-
-
-
 #-------------------------------------------------------------------------------------------------#
 #                                                                                                 #
 #  Flow (6)                                                                                    #
