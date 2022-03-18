@@ -35,7 +35,7 @@ def main():
                              "RIF pain",
                              "EGS scoring systems",
                              "Network Flow",
-                             "Gallbladder surgery"
+                             "Gallbladder Surgery"
                              
                              ])
 
@@ -47,7 +47,7 @@ def main():
     elif page == "EGS scoring systems": show_scores()
     #elif page == "Network Flow - curved":       show_networkflowcurve()
     elif page == "Network Flow":        show_networkflow()
-    elif page == "Gallbladder surgery": exp_gallstone()
+    elif page == "Gallbladder Surgery": exp_gallstone()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -844,7 +844,7 @@ def show_ask_Gall():
     new_df = df[df['Q_Noun'].str.match('|'.join(V))]
     Question1 = new_df['Question1'].to_string(index=False)
     Answer1 = new_df['Answer1'].to_string(index=False)
-    Audio = "/Users/alastairhayes/Desktop/Eponyms/Consent/Appendix_risks.wav"
+    #Audio = "https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/Appendix_risks.wav"
     Z = pd.Series(T, name='animal')
     Qs = pd.Series(df['Q_Noun'])
 
