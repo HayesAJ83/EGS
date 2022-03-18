@@ -804,7 +804,7 @@ def exp_gallstone():
                              "Ask a Surgeon about cholecystectomy",
                              #"Treatment options",
                              #"Hear a patient's story",
-                             ], index=1)
+                             ], index=0)
 
     if gallstone   == "Ask a Surgeon about cholecystectomy":          show_ask_Gall()      #1
     elif gallstone == "About Gallstones":       show_what_Gall()     #2
