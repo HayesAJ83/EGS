@@ -800,10 +800,10 @@ def exp_gallstone():
     #Page
     st.title('''Gallstone disease''')
     gallstone = st.radio(""" """,
-                            ["What are gallstones?",
+                            [#"What are gallstones?",
                              "Ask a Surgeon about cholecystectomy",
                              #"Treatment options",
-                             "Hear a patient's story",
+                             #"Hear a patient's story",
                              ], index=1)
 
     if gallstone   == "Ask a Surgeon about cholecystectomy":          show_ask_Gall()      #1
@@ -819,7 +819,7 @@ def show_ask_Gall():
 #    st.sidebar.markdown('''[NHS website](https://www.nhs.uk/conditions/gallbladder-removal/)''')
 
     st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
-            Mr H FRCSEd</span>''', unsafe_allow_html=True)
+            Mr Hayes FRCSEd</span>''', unsafe_allow_html=True)
     st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
             Consultant General Surgeon</span>''', unsafe_allow_html=True)
     st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
@@ -854,7 +854,7 @@ def show_ask_Gall():
 
         st.markdown('''<span style="font-size:14pt;color:navy;font-family:comic sans ms;">I think you're asking...</span>''',
                     unsafe_allow_html=True)
-        st.audio(Audio, start_time=3)
+       # st.audio(Audio, start_time=3)
         st.subheader(Question1.split("\n")[0])
 
         showAns = st.checkbox('''Show answer''', value=False)
