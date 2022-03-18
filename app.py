@@ -835,7 +835,7 @@ def show_ask_Gall():
     Questions_noSpaces = Questions_Spaces.strip()
     questions1 = Questions_noSpaces.lower()  #str
     questions = questions1.replace("?","")
-    df = pd.read_csv('/Users/alastairhayes/desktop/Eponyms/Consent4python_gallbladder_01.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/HayesAJ83/EGS/main/Data/Consent4python_gallbladder_01.csv')
     Q = questions.split(" ")                #list
     S = set(Q)                              #set
     T = np.array(list(S)).astype(object)
