@@ -818,9 +818,6 @@ def show_ask_Gall():
     st.markdown("---")
 #    st.sidebar.markdown('''[NHS website](https://www.nhs.uk/conditions/gallbladder-removal/)''')
 
-    image = '/Users/alastairhayes/Desktop/Eponyms/Consent/AP.png' #Wasp.png'
-    st.sidebar.image(image, width=200)
-
     st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
             Mr H FRCSEd</span>''', unsafe_allow_html=True)
     st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
