@@ -35,6 +35,7 @@ def main():
                              "RIF pain",
                              "EGS scoring systems",
                              "Network Flow",
+                             "Gallbladder surgery"
                              
                              ])
 
@@ -46,6 +47,7 @@ def main():
     elif page == "EGS scoring systems": show_scores()
     #elif page == "Network Flow - curved":       show_networkflowcurve()
     elif page == "Network Flow":        show_networkflow()
+    elif page == "Gallbladder surgery": exp_gallstone()
 
     st.sidebar.subheader("About")
     st.sidebar.info(
@@ -786,6 +788,104 @@ def show_networkflow():
 
     st.write('''<br>Surg-Flow | Copyright © 2022 Excision Ltd | All rights reserved''', unsafe_allow_html=True)
     
+
+#----------------------------------------------------------------------------------------------#
+#                                                                                              #
+#  Gallstone surgery (7)                                                                       #
+# ::: Handles                                                                                  #                                                                                              #
+#                                                                                              #
+#----------------------------------------------------------------------------------------------#
+
+def exp_gallstone():
+    #Page
+    st.title('''Gallstone disease''')
+    gallstone = st.radio(""" """,
+                            ["What are gallstones?",
+                             "Ask a Surgeon about cholecystectomy",
+                             #"Treatment options",
+                             "Hear a patient's story",
+                             ], index=1)
+
+    if gallstone   == "Ask a Surgeon about cholecystectomy":          show_ask_Gall()      #1
+    elif gallstone == "About Gallstones":       show_what_Gall()     #2
+ #   elif gallstone == "Treatment options":      show_treat_Gall()    #3
+    elif gallstone == "Hear a patient's story": show_patient_Gall()  #4
+
+
+
+#1
+def show_ask_Gall():
+    st.markdown("---")
+#    st.sidebar.markdown('''[NHS website](https://www.nhs.uk/conditions/gallbladder-removal/)''')
+
+    image = '/Users/alastairhayes/Desktop/Eponyms/Consent/AP.png' #Wasp.png'
+    st.sidebar.image(image, width=200)
+
+    st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
+            Mr H FRCSEd</span>''', unsafe_allow_html=True)
+    st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
+            Consultant General Surgeon</span>''', unsafe_allow_html=True)
+    st.sidebar.markdown('''<span style="font-size:12pt;color:black;">
+            Royal Infirmary of Everywhere</span>''', unsafe_allow_html=True)
+
+    st.markdown('''<span style="font-size:14pt;color:navy;font-family:comic sans ms;">Hello, my name is
+                    Mr H.</span>''', unsafe_allow_html=True)
+    
+    st.markdown('''<span style="font-size:14pt;color:navy;font-family:comic sans ms;">What would you like
+                    to ask about the Cholecystectomy operation to remove the gallbladder?</span>''',
+                    unsafe_allow_html=True)
+    Questions_Spaces = st.text_input('Enter your question here:', '')
+    Questions_noSpaces = Questions_Spaces.strip()
+    questions1 = Questions_noSpaces.lower()  #str
+    questions = questions1.replace("?","")
+    df = pd.read_csv('/Users/alastairhayes/desktop/Eponyms/Consent4python_gallbladder_01.csv')
+    Q = questions.split(" ")                #list
+    S = set(Q)                              #set
+    T = np.array(list(S)).astype(object)
+    U = np.sort(T, axis=None)
+    V = [x for x in U if x]                 #remove empty strings
+    new_df = df[df['Q_Noun'].str.match('|'.join(V))]
+    Question1 = new_df['Question1'].to_string(index=False)
+    Answer1 = new_df['Answer1'].to_string(index=False)
+    Audio = "/Users/alastairhayes/Desktop/Eponyms/Consent/Appendix_risks.wav"
+    Z = pd.Series(T, name='animal')
+    Qs = pd.Series(df['Q_Noun'])
+
+    if Z.isin(['agony','when','waiting','wait','wiat','wate','wate?','risk','risks','risks?','risky?','recovery',
+               'hospital','pain',
+               'hurt','painful','sore','sore?','complications']).any() == True:
+
+        st.markdown('''<span style="font-size:14pt;color:navy;font-family:comic sans ms;">I think you're asking...</span>''',
+                    unsafe_allow_html=True)
+        st.audio(Audio, start_time=3)
+        st.subheader(Question1.split("\n")[0])
+
+        showAns = st.checkbox('''Show answer''', value=False)
+        if showAns:
+            st.markdown(Answer1.split("\n")[0], unsafe_allow_html=True)
+
+
+#2
+def show_what_Gall():
+    st.markdown("---")
+    st.write('''The gallbladder is a light-bulb -shaped organ...''')
+    st.write('''Cholecystitis means...''')
+     
+#3
+def show_treat_Gall():
+    st.markdown("---")
+    st.write('''Surgery is not indicated for people with gallstones that are not causing any symptoms.''')
+    st.write('''Treatment for gallstones can be thought of as two types: 1) Conservative or 2) Surgical...''')
+    st.write('''The operation for gallstones can be laparoscopic (keyhole) or open surgery...''')
+    
+           
+#4
+def show_patient_Gall():
+    st.markdown("---")
+    st.write('''The operation for gallbaldder removal can be laparoscopic (keyhole) or open surgery...''')
+
+
+
 #-------------------------------------------------------------------------------------------#
 
 main()
